@@ -96,9 +96,9 @@ export function FriendshipGlobe() {
   }, [])
 
   return (
-    <section id="conexion" className="relative py-28 px-4 bg-surface/40" aria-label="Conexion del grupo en el mundo">
+    <section id="conexion" className="relative px-4 py-24" aria-label="Conexion del grupo en el mundo">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center">
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">Conexion</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">No importa la distancia</h2>
           <p className="max-w-3xl mx-auto mt-5 text-muted-foreground leading-relaxed">
@@ -106,11 +106,12 @@ export function FriendshipGlobe() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden border border-border/40 bg-background/55">
-          <div className="h-[440px] md:h-[560px] lg:h-[620px]">
+        <div className="relative mt-4 overflow-hidden">
+          <div className="h-[430px] md:h-[540px] lg:h-[620px]">
             <WorldNoSSR data={network} globeConfig={globeConfig} />
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/80 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/85 to-transparent" />
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-xs sm:text-sm text-muted-foreground">

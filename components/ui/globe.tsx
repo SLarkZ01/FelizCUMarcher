@@ -16,7 +16,7 @@ declare module "@react-three/fiber" {
 extend({ ThreeGlobe: ThreeGlobe });
 
 const RING_PROPAGATION_SPEED = 3;
-const cameraZ = 300;
+const cameraZ = 360;
 
 type Position = {
   order: number;
@@ -262,9 +262,9 @@ export function WebGLRendererConfig() {
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
+  scene.fog = new Fog(0xffffff, 650, 2100);
   return (
-    <Canvas scene={scene} camera={{ fov: 50, near: 180, far: 1800, position: [0, 0, cameraZ] }}>
+    <Canvas scene={scene} camera={{ fov: 42, near: 180, far: 1800, position: [0, 28, cameraZ] }}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
@@ -288,7 +288,7 @@ export function World(props: WorldProps) {
         maxDistance={cameraZ}
         autoRotateSpeed={1}
         autoRotate={true}
-        minPolarAngle={Math.PI / 3.5}
+        minPolarAngle={Math.PI / 3.7}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />
     </Canvas>
