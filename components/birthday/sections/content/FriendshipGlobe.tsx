@@ -102,7 +102,7 @@ export function FriendshipGlobe() {
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">Conexion</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">No importa la distancia</h2>
           <p className="max-w-3xl mx-auto mt-5 text-muted-foreground leading-relaxed">
-            Vivimos en ciudades distintas, paises distintos. Pero la distancia nunca nos quito la amistad. Mexico, Texas y Colombia mas unidos que nunca.
+            Vivimos en ciudades distintas, paises distintos. Pero la distancia nunca fue un obstaculo. Mexico, Texas y Colombia mas unidos que nunca.
           </p>
         </div>
 
