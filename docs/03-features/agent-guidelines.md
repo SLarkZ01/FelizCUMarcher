@@ -15,7 +15,7 @@
   - selector en carrusel también en móvil (sin grilla legacy).
 - Sección de conexión global (`#conexion`) con `GitHub Globe` (Aceternity):
   - visualiza amistades entre México, Texas y Colombia,
-  - arcos configurados desde `lib/constants.ts` (`globeConnections`),
+  - arcos generados automáticamente desde `lib/constants.ts` (`globePeople`),
   - lista textual de rutas para accesibilidad y contexto.
 - Muro de mensajes con formulario local y lista dinámica de deseos.
 - Interacciones visuales añadidas: `Spotlight`, `SparklesText`, `MagicCard`, `Marquee`, `ConfettiButton`.
@@ -25,7 +25,7 @@
 - Datos de contenido centralizados en `lib/constants.ts`.
 - En `lib/constants.ts` las fotos y videos incluyen `width` y `height` reales para respetar proporciones.
 - En `lib/constants.ts` las fotos incluyen `caption` para mostrar texto en el modal ampliado.
-- En `lib/constants.ts` la red global usa `globeConnections` (lat/lng, orden, altura y color de arco).
+- En `lib/constants.ts` la red global usa `globePeople`; las rutas del globo se derivan en `FriendshipGlobe.tsx`.
 - Si se cambia persona/fecha/copy/firma, prioriza editar `lib/constants.ts` antes que hardcodear textos.
 - Anchors de navegación vigentes: `#hero`, `#mensaje`, `#galeria`, `#conexion`, `#mensajes`.
 

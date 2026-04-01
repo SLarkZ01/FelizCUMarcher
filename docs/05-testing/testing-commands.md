@@ -19,7 +19,9 @@
 En ausencia de tests automatizados, la validación mínima para cambios UI es:
 
 - `bun run build` sin errores.
-- Revisión manual en desktop y móvil de secciones visibles (`hero`, `mensaje`, `galería`, `mensajes`).
+- Revisión manual en desktop y móvil de secciones visibles (`hero`, `mensaje`, `galería`, `conexión`, `mensajes`).
+- En móvil, verificar que el glow del hero quede centrado sobre `eventHighlight` (nombre principal).
+- En `#conexion`, verificar que el globo no tape el texto y mantenga continuidad visual con el encabezado.
 
 ## Checklist manual recomendado para galería actual
 

@@ -55,7 +55,7 @@
 - `components/birthday/sections/content/FriendshipGlobe.tsx` contiene:
   - configuración visual del globo,
   - render de `World` con `dynamic(..., { ssr: false })`,
-  - datos de arcos derivados de `BIRTHDAY_CONFIG.globeConnections`,
+  - datos de arcos derivados dinámicamente de `BIRTHDAY_CONFIG.globePeople`,
   - fallback textual en cards para describir conexiones del grupo.
 
 ## Notas de arquitectura

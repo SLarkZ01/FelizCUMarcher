@@ -17,6 +17,7 @@
 ## Componentes externos ya integrados
 
 - Aceternity: `Spotlight` para profundidad en hero.
+- En móvil, el hero usa glow radial centrado en lugar de `Spotlight` SVG para mantener el foco visual sobre el nombre.
 - Aceternity: `Globe` para sección de conexión global.
 - Magic UI:
   - `SparklesText` para énfasis del nombre.
@@ -59,7 +60,7 @@
 
 - Usar `components/ui/globe.tsx` con `dynamic(..., { ssr: false })` para evitar errores de `window` en build SSR.
 - Mantener fondo oscuro y paleta dorado/burdeos para coherencia con el resto del sitio.
-- Definir conexiones de amistades en `lib/constants.ts` y evitar hardcodear coordenadas en el componente.
+- Definir personas y coordenadas base en `lib/constants.ts` (`globePeople`) y evitar hardcodear rutas en el componente.
 - Acompañar el canvas 3D con texto de apoyo (rutas/listado) para reforzar accesibilidad.
 
 ## Convenciones de nombres

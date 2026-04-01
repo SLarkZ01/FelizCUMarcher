@@ -16,13 +16,14 @@ Este repositorio contiene una web de cumpleaños personalizada para Alan, con to
 
 ## Estado funcional actual
 
-- La página activa incluye: `Navigation`, `Hero`, `Tribute`, `Gallery`, `WishWall` y `Footer`.
+- La página activa incluye: `Navigation`, `Hero`, `Tribute`, `Gallery`, `FriendshipGlobe`, `WishWall` y `Footer`.
 - Secciones retiradas del flujo principal: `EventDetails`, `Itinerary`, `RSVPSection`.
 - Fecha objetivo del countdown: `2026-04-02` (inicio del día).
 - Firma del sitio: `Los Tilines Mexico`.
 - Color principal de marca: `#942B2B`.
 - Integraciones visuales recientes:
   - Aceternity UI: `Spotlight`.
+  - Aceternity UI: `GitHub Globe` (`World` en `components/ui/globe.tsx`).
   - Magic UI: `SparklesText`, `MagicCard`, `ConfettiButton`, `Marquee`.
 - Estado actual de galería:
   - Imágenes y videos reales servidos desde `public/images/` y `public/videos/`.
