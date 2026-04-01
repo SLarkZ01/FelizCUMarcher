@@ -81,10 +81,7 @@ export function Gallery() {
               gradientSize={220}
             >
               <div className="grid md:grid-cols-[1.5fr_1fr] items-stretch">
-                <div
-                  className="relative md:min-h-[380px]"
-                  style={{ aspectRatio: `${featuredPhoto.width} / ${featuredPhoto.height}` }}
-                >
+                <div className="relative h-[360px] sm:h-[420px] md:h-[460px] lg:h-[500px]">
                   <Image
                     src={featuredPhoto.url}
                     alt={featuredPhoto.alt}
