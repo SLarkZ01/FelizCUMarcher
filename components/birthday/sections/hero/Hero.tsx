@@ -21,13 +21,17 @@ export function Hero() {
       aria-label="Hero"
     >
       <Spotlight
-        className="-top-20 left-0 md:-top-28 md:left-1/4"
+        className="hidden md:block -top-28 left-1/4 h-[169%] w-[84%]"
         fill="hsl(356 55% 37%)"
       />
+      <div className="pointer-events-none absolute inset-0 md:hidden">
+        <div className="absolute left-1/2 top-[46%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/18 blur-3xl" />
+        <div className="absolute left-1/2 top-[46%] h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[88px]" />
+      </div>
 
       {/* Ambient glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-glow-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-glow-pulse animation-delay-500" />
+      <div className="absolute hidden md:block top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl animate-glow-pulse" />
+      <div className="absolute hidden md:block bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-accent/5 blur-3xl animate-glow-pulse animation-delay-500" />
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto pt-20">
