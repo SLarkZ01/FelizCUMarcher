@@ -64,7 +64,7 @@ export default function RootLayout({
     <html lang="es" className={`${playfair.variable} ${cormorant.variable} ${cinzel.variable}`}>
       <body className="font-sans antialiased">
         {children}
-        <Analytics />
+        <Analytics mode="production" />
       </body>
     </html>
   )
