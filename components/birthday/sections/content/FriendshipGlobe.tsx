@@ -128,14 +128,6 @@ export function FriendshipGlobe() {
             </div>
           ))}
         </div>
-
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-xs sm:text-sm text-muted-foreground">
-          {network.map((connection) => (
-            <div key={connection.order} className="border border-border/35 bg-background/45 px-4 py-3">
-              {connection.label}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )
