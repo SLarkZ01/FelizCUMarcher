@@ -3,6 +3,7 @@
 ## Funcionalidades actuales
 
 - Hero con countdown a `2026-04-02`, encabezado principal y CTA de scroll.
+- Al llegar a `00:00:00`, el hero muestra "Ya es el cumple" y dispara confeti automático en pantalla.
 - Sección de mensaje/tributo con cualidades y cita.
 - Galería con assets reales de `public/images/` y `public/videos/`.
 - Sección de imágenes:

@@ -12,7 +12,7 @@ export const BIRTHDAY_CONFIG = {
   eventSubtitle: "22 años",
   
   // Birthday date (format: YYYY-MM-DD)
-  birthdayDate: "2026-04-02",
+  birthdayDate: "2026-04-02T00:00:00-05:00",
   
   // Event time
   eventTime: "00:00",

@@ -32,8 +32,19 @@ export function useCountdown(targetDate: string): CountdownResult {
   const [timeLeft, setTimeLeft] = useState<CountdownResult>(calculateTimeLeft)
 
   useEffect(() => {
+    setTimeLeft(calculateTimeLeft())
+
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft())
+      setTimeLeft((previous) => {
+        if (previous.isPast) return previous
+
+        const next = calculateTimeLeft()
+        if (next.isPast) {
+          clearInterval(timer)
+        }
+
+        return next
+      })
     }, 1000)
 
     return () => clearInterval(timer)

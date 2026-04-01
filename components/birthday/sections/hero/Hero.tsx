@@ -1,13 +1,38 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { ChevronDown } from "lucide-react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { useCountdown } from "@/hooks/useCountdown"
 import { Spotlight } from "@/components/ui/spotlight"
 import { SparklesText } from "@/components/ui/sparkles-text"
+import { Confetti, type ConfettiRef } from "@/components/ui/confetti"
 
 export function Hero() {
-  const { days, hours, minutes } = useCountdown(BIRTHDAY_CONFIG.birthdayDate)
+  const { days, hours, minutes, seconds, isPast } = useCountdown(BIRTHDAY_CONFIG.birthdayDate)
+  const totalHours = days * 24 + hours
+  const confettiRef = useRef<ConfettiRef>(null)
+
+  useEffect(() => {
+    if (!isPast) return
+
+    const burstTimings = [120, 520, 980]
+    const timers = burstTimings.map((delay, index) =>
+      window.setTimeout(() => {
+        confettiRef.current?.fire({
+          particleCount: 120 + index * 35,
+          spread: 90 + index * 10,
+          startVelocity: 42 + index * 4,
+          scalar: 1 + index * 0.08,
+          origin: { y: 0.62 - index * 0.05 },
+        })
+      }, delay)
+    )
+
+    return () => {
+      timers.forEach((timer) => window.clearTimeout(timer))
+    }
+  }, [isPast])
 
   const scrollToDetails = () => {
     document.getElementById("mensaje")?.scrollIntoView({ behavior: "smooth" })
@@ -20,6 +45,14 @@ export function Hero() {
                  overflow-hidden noise-overlay"
       aria-label="Hero"
     >
+      {isPast ? (
+        <Confetti
+          ref={confettiRef}
+          manualstart
+          className="pointer-events-none fixed inset-0 z-[95] h-screen w-screen"
+        />
+      ) : null}
+
       <Spotlight
         className="hidden md:block -top-28 left-1/4 h-[169%] w-[84%]"
         fill="hsl(356 55% 37%)"
@@ -73,15 +106,7 @@ export function Hero() {
         >
           <div className="text-center">
             <span className="block text-3xl sm:text-4xl font-serif text-foreground">
-              {String(days).padStart(2, "0")}
-            </span>
-            <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
-              Días
-            </span>
-          </div>
-          <div className="text-center">
-            <span className="block text-3xl sm:text-4xl font-serif text-foreground">
-              {String(hours).padStart(2, "0")}
+              {String(totalHours).padStart(2, "0")}
             </span>
             <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
               Hrs
@@ -95,7 +120,21 @@ export function Hero() {
               Min
             </span>
           </div>
+          <div className="text-center">
+            <span className="block text-3xl sm:text-4xl font-serif text-foreground">
+              {String(seconds).padStart(2, "0")}
+            </span>
+            <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
+              Seg
+            </span>
+          </div>
         </div>
+
+        {isPast ? (
+          <p className="text-accent text-xs sm:text-sm uppercase tracking-[0.35em] opacity-0 animate-fade-in animation-delay-800">
+            Ya es el cumple
+          </p>
+        ) : null}
       </div>
       
       {/* Scroll indicator */}
