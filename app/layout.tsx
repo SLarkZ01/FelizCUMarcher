@@ -26,8 +26,8 @@ const cinzel = Cinzel({
 })
 
 export const metadata: Metadata = {
-  title: 'Una Velada de Intima Grandeza | Celebracion',
-  description: 'Te invitamos a una celebracion privada de cumpleanos. Una noche de elegancia, amor y momentos inolvidables.',
+  title: 'Feliz cumpleaños Alan | Los Tilines Mexico',
+  description: 'Una página especial para celebrar los 22 años de Alan con mensajes, recuerdos y mucha buena vibra.',
   generator: 'v0.app',
   icons: {
     icon: [

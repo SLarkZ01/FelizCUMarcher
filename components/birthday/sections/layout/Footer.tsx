@@ -26,7 +26,7 @@ export function Footer() {
     {
       name: "Email",
       icon: Mail,
-      href: `mailto:?subject=${encodeURIComponent(`Celebracion de ${BIRTHDAY_CONFIG.name}`)}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`,
+      href: `mailto:?subject=${encodeURIComponent(`Feliz cumpleaños ${BIRTHDAY_CONFIG.name}`)}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`,
     },
   ]
 
@@ -41,7 +41,7 @@ export function Footer() {
         {/* Share section */}
         <div className="mb-12">
           <span className="text-accent text-xs tracking-[0.3em] uppercase font-[var(--font-display)]">
-            Comparte la Celebracion
+            Comparte el mensaje
           </span>
           
           <div className="flex items-center justify-center gap-6 mt-6">
@@ -65,8 +65,8 @@ export function Footer() {
 
         {/* Message */}
         <p className="text-muted-foreground text-sm leading-relaxed max-w-md mx-auto mb-8">
-          Gracias por ser parte de esta celebracion tan especial. 
-          Tu presencia hace este momento aun mas memorable.
+          Gracias por celebrar a Alan con nosotros.
+          Cada mensaje suma una sonrisa más en su día.
         </p>
 
         {/* Signature */}
@@ -84,7 +84,7 @@ export function Footer() {
 
         {/* Copyright */}
         <p className="text-muted-foreground/50 text-xs tracking-wider">
-          Una celebracion para {BIRTHDAY_CONFIG.name} • {new Date().getFullYear()}
+          Feliz cumpleaños {BIRTHDAY_CONFIG.name} • {new Date().getFullYear()}
         </p>
       </div>
     </footer>

@@ -3,82 +3,81 @@
 
 export const BIRTHDAY_CONFIG = {
   // The name of the person being celebrated
-  name: "Victoria",
+  name: "Alan",
+  age: 22,
   
   // Event subtitle
-  eventTitle: "Una Velada de",
-  eventHighlight: "Intima",
-  eventSubtitle: "Grandeza",
+  eventTitle: "Feliz Cumple",
+  eventHighlight: "Alan",
+  eventSubtitle: "22 años contigo",
   
   // Birthday date (format: YYYY-MM-DD)
-  birthdayDate: "2025-06-15",
+  birthdayDate: "2026-04-02",
   
   // Event time
-  eventTime: "20:00",
+  eventTime: "00:00",
   
   // Venue details
   venue: {
-    name: "Palacio de Cristal",
-    address: "Avenida de los Sueños 123",
-    city: "Madrid",
+    name: "",
+    address: "",
+    city: "",
     mapUrl: "https://maps.google.com",
   },
   
   // Dress code
-  dressCode: "Elegante Formal",
+  dressCode: "",
   
   // Personal tribute message
-  message: "Una persona extraordinaria cuya luz ilumina cada rincon. Tu presencia transforma los momentos ordinarios en memorias preciosas. Hoy celebramos no solo tu cumpleanos, sino la bendicion que eres para todos los que te conocen.",
+  message: "Alan, gracias por ser ese amigo que siempre suma, que hace reir en los dias pesados y que convierte cualquier plan sencillo en un recuerdo enorme. Hoy celebramos tus 22 y todo lo bueno que traes a nuestras vidas.",
   
   // Quote for the message section
-  quote: "La vida no se mide por las veces que respiras, sino por los momentos que te dejan sin aliento.",
-  quoteAuthor: "Anonymous",
+  quote: "Que este nuevo año te regale salud, aventuras, risas y metas cumplidas. Te mereces todo lo mejor, hermano.",
+  quoteAuthor: "Tus amigos",
   
   // From whom the celebration is
-  from: "Tu Familia",
+  from: "Los Tilines Mexico",
   
   // Navigation items
   navigation: [
-    { label: "Detalles", href: "#details" },
-    { label: "Itinerario", href: "#itinerary" },
-    { label: "R.S.V.P", href: "#rsvp" },
+    { label: "Inicio", href: "#hero" },
+    { label: "Mensaje", href: "#mensaje" },
+    { label: "Galería", href: "#galeria" },
+    { label: "Mensajes", href: "#mensajes" },
   ],
   
   // Event itinerary
   itinerary: [
-    { time: "20:00", title: "Recepcion", description: "Coctel de bienvenida y musica en vivo" },
-    { time: "21:00", title: "Cena", description: "Menu de degustacion de cinco tiempos" },
-    { time: "22:30", title: "Brindis", description: "Palabras especiales y champagne" },
-    { time: "23:00", title: "Pastel", description: "El momento mas dulce de la noche" },
-    { time: "23:30", title: "Baile", description: "Musica y celebracion hasta el amanecer" },
+    { time: "00:00", title: "¡Arranca el cumple!", description: "Empieza el 2 de abril y comienza la celebración de Alan." },
+    { time: "Todo el día", title: "Mensajes y buena vibra", description: "Un día para recordar anécdotas, reír y celebrar juntos." },
   ],
   
   // Qualities/traits to celebrate
   qualities: [
-    { title: "Bondad", description: "Un corazon que siempre da sin esperar nada a cambio" },
-    { title: "Alegria", description: "Una sonrisa que ilumina incluso los dias mas grises" },
-    { title: "Fortaleza", description: "La valentia de enfrentar cada desafio con gracia" },
-    { title: "Amor", description: "El regalo mas grande que compartes con todos" },
+    { title: "Lealtad", description: "Siempre firme para su gente, en las buenas y en las complicadas." },
+    { title: "Humor", description: "Tiene ese talento para sacar una risa justo cuando hace falta." },
+    { title: "Determinación", description: "Cuando se propone algo, lo pelea hasta conseguirlo." },
+    { title: "Gran corazón", description: "Está pendiente de los suyos y siempre apoya de verdad." },
   ],
   
   // Gallery photos
   photos: [
-    { id: 1, url: "https://picsum.photos/seed/elegant1/800/1000", title: "Momentos Preciosos", aspect: "portrait" },
-    { id: 2, url: "https://picsum.photos/seed/elegant2/800/600", title: "Sonrisas Eternas", aspect: "landscape" },
-    { id: 3, url: "https://picsum.photos/seed/elegant3/800/800", title: "Aventuras Juntos", aspect: "square" },
-    { id: 4, url: "https://picsum.photos/seed/elegant4/800/600", title: "Celebraciones", aspect: "landscape" },
-    { id: 5, url: "https://picsum.photos/seed/elegant5/800/1000", title: "Recuerdos Dorados", aspect: "portrait" },
-    { id: 6, url: "https://picsum.photos/seed/elegant6/800/800", title: "Amor Infinito", aspect: "square" },
+    { id: 1, url: "https://picsum.photos/seed/alan-cumple-1/800/1000", title: "Pura Buena Vibra", aspect: "portrait" },
+    { id: 2, url: "https://picsum.photos/seed/alan-cumple-2/800/600", title: "Risas de Siempre", aspect: "landscape" },
+    { id: 3, url: "https://picsum.photos/seed/alan-cumple-3/800/800", title: "Momentos Legendarios", aspect: "square" },
+    { id: 4, url: "https://picsum.photos/seed/alan-cumple-4/800/600", title: "Celebrando a Alan", aspect: "landscape" },
+    { id: 5, url: "https://picsum.photos/seed/alan-cumple-5/800/1000", title: "Compas y Recuerdos", aspect: "portrait" },
+    { id: 6, url: "https://picsum.photos/seed/alan-cumple-6/800/800", title: "Otro Año Inolvidable", aspect: "square" },
   ],
   
   // Social share text
-  shareText: "Celebremos juntos este dia especial",
+  shareText: "Feliz cumpleaños Alan: ven a dejar tu mensaje",
   
   // Contact email for RSVP
-  contactEmail: "rsvp@celebracion.com",
+  contactEmail: "",
   
   // Gift registry message
-  giftMessage: "Tu presencia es el mejor regalo. Si deseas contribuir a nuestros suenos, hemos preparado una lista especial.",
+  giftMessage: "",
 } as const
 
 export type Photo = typeof BIRTHDAY_CONFIG.photos[number]
@@ -103,20 +102,20 @@ export interface RSVPData {
 export const INITIAL_WISHES: Wish[] = [
   {
     id: "1",
-    name: "Maria Garcia",
-    message: "Que este nuevo ano de vida te traiga infinitas bendiciones y momentos de felicidad.",
-    date: "2025-06-10",
+    name: "Fer",
+    message: "Feliz cumple, Alan. Que estos 22 vengan con pura cosa buena y muchas metas cumplidas.",
+    date: "2026-03-31",
   },
   {
     id: "2", 
-    name: "Carlos Rodriguez",
-    message: "Feliz cumpleanos! Tu alegria es contagiosa y tu bondad inspira a todos.",
-    date: "2025-06-12",
+    name: "Iván",
+    message: "Hermano, gracias por tantas risas y aventuras. Vamos por otro año épico.",
+    date: "2026-04-01",
   },
   {
     id: "3",
-    name: "Ana Martinez",
-    message: "Celebro tu existencia y todo lo que representas para quienes te queremos.",
-    date: "2025-06-14",
+    name: "Sofía",
+    message: "Te mereces un cumpleaños increíble. Disfruta mucho tu día, Alan.",
+    date: "2026-04-01",
   },
 ]

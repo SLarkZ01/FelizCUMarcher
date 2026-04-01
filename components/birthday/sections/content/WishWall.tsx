@@ -31,6 +31,7 @@ export function WishWall() {
 
   return (
     <section 
+      id="mensajes"
       className="relative py-32 px-4 bg-surface/30"
       aria-label="Muro de deseos"
     >
@@ -38,7 +39,7 @@ export function WishWall() {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">
-            Buenos Deseos
+            Cumple de Alan
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">
             Mensajes para {BIRTHDAY_CONFIG.name}

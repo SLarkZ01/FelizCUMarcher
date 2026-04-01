@@ -8,7 +8,7 @@
   /* Core palette - darker, more luxurious */
   --background: #080505;
   --foreground: #FDF6EC;
-  --primary: #8B2323;
+  --primary: #942B2B;
   --primary-foreground: #FDF6EC;
   --accent: #C9A84C;
   --accent-foreground: #080505;
@@ -24,7 +24,7 @@
   --secondary-foreground: #FDF6EC;
   --muted: #1A0F0F;
   --muted-foreground: #9A8A7A;
-  --destructive: #8B2323;
+  --destructive: #942B2B;
   --destructive-foreground: #FDF6EC;
   --border: #2A1515;
   --input: #1A0F0F;
@@ -261,7 +261,7 @@
   position: absolute;
   width: 12px;
   height: 12px;
-  background: radial-gradient(ellipse at 30% 30%, #8B2323, #5A1515);
+  background: radial-gradient(ellipse at 30% 30%, #942B2B, #5E1C1C);
   border-radius: 50% 0 50% 50%;
   opacity: 0;
   filter: blur(0.5px);

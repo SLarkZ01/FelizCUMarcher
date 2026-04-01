@@ -6,6 +6,7 @@ import { Heart } from "lucide-react"
 export function Tribute() {
   return (
     <section 
+      id="mensaje"
       className="relative py-32 px-4 overflow-hidden"
       aria-label="Tributo"
     >
@@ -19,11 +20,14 @@ export function Tribute() {
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">
-            Celebrando
+            De parte de
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">
-            Lo Que Amamos de {BIRTHDAY_CONFIG.name}
+            Los Tilines Mexico para {BIRTHDAY_CONFIG.name}
           </h2>
+          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
+            {BIRTHDAY_CONFIG.message}
+          </p>
         </div>
 
         {/* Qualities grid */}

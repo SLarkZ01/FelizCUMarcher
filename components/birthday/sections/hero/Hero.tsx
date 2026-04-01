@@ -14,6 +14,7 @@ export function Hero() {
 
   return (
     <section 
+      id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4
                  overflow-hidden noise-overlay"
       aria-label="Hero"
@@ -31,7 +32,7 @@ export function Hero() {
           className="text-accent font-[var(--font-display)] text-xs sm:text-sm uppercase tracking-[0.5em] mb-12
                      opacity-0 animate-fade-in animation-delay-200"
         >
-          Una Celebracion Privada
+          2 de abril de 2026
         </p>
         
         {/* Main title - dramatic typography like the reference */}
@@ -63,7 +64,7 @@ export function Hero() {
               {String(days).padStart(2, "0")}
             </span>
             <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
-              Dias
+              Días
             </span>
           </div>
           <div className="text-center">

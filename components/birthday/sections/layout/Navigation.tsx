@@ -33,7 +33,7 @@ export function Navigation() {
           className="font-[var(--font-display)] text-accent text-sm tracking-[0.3em] uppercase
                      opacity-0 animate-fade-in animation-delay-100"
         >
-          Celebrando a {BIRTHDAY_CONFIG.name}
+          Feliz cumple, {BIRTHDAY_CONFIG.name}
         </a>
 
         {/* Desktop Navigation */}
@@ -54,13 +54,13 @@ export function Navigation() {
 
         {/* Date Badge */}
         <a
-          href="#rsvp"
+          href="#mensajes"
           className="hidden md:flex items-center gap-2 px-5 py-2.5 border border-accent/40
                      text-accent text-xs tracking-[0.2em] uppercase
                      hover:bg-accent/10 hover:border-accent transition-all duration-300
                      opacity-0 animate-fade-in animation-delay-500"
         >
-          <span>La Gala</span>
+          <span>Cumple</span>
           <span className="text-foreground/60">—</span>
           <span>{formattedDate}</span>
         </a>
@@ -105,13 +105,13 @@ export function Navigation() {
             </a>
           ))}
           <a
-            href="#rsvp"
+            href="#mensajes"
             onClick={() => setIsMobileMenuOpen(false)}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 
                        border border-accent/40 text-accent text-sm tracking-[0.2em] uppercase
                        hover:bg-accent/10 transition-all duration-300"
           >
-            <span>La Gala — {formattedDate}</span>
+            <span>Cumple — {formattedDate}</span>
           </a>
         </div>
       </div>

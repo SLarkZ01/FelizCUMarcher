@@ -6,6 +6,7 @@ import { BIRTHDAY_CONFIG } from "@/lib/constants"
 export function Gallery() {
   return (
     <section 
+      id="galeria"
       className="relative py-32 px-4 bg-surface/30"
       aria-label="Galeria de fotos"
     >
@@ -13,10 +14,10 @@ export function Gallery() {
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">
-            Momentos
+            Recuerdos
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">
-            Recuerdos Preciosos
+            Momentos con Alan
           </h2>
         </div>
 
