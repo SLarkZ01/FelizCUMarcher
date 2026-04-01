@@ -1,11 +1,16 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { Heart, Mail, MessageCircle, Send } from "lucide-react"
 
 export function Footer() {
-  const shareUrl = typeof window !== "undefined" ? window.location.href : ""
+  const [shareUrl, setShareUrl] = useState("")
   const shareText = `${BIRTHDAY_CONFIG.shareText} - ${BIRTHDAY_CONFIG.name}`
+
+  useEffect(() => {
+    setShareUrl(window.location.href)
+  }, [])
 
   const shareLinks = [
     {
