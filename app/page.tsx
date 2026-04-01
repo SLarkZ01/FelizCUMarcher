@@ -1,15 +1,15 @@
 import { Suspense, lazy } from "react"
 
 // Lazy load sections for better performance
-const Navigation = lazy(() => import("@/components/birthday/sections/Navigation").then(m => ({ default: m.Navigation })))
-const Hero = lazy(() => import("@/components/birthday/sections/Hero").then(m => ({ default: m.Hero })))
-const EventDetails = lazy(() => import("@/components/birthday/sections/EventDetails").then(m => ({ default: m.EventDetails })))
-const Itinerary = lazy(() => import("@/components/birthday/sections/Itinerary").then(m => ({ default: m.Itinerary })))
-const Tribute = lazy(() => import("@/components/birthday/sections/Tribute").then(m => ({ default: m.Tribute })))
-const Gallery = lazy(() => import("@/components/birthday/sections/Gallery").then(m => ({ default: m.Gallery })))
-const RSVPSection = lazy(() => import("@/components/birthday/sections/RSVPSection").then(m => ({ default: m.RSVPSection })))
-const WishWall = lazy(() => import("@/components/birthday/sections/WishWall").then(m => ({ default: m.WishWall })))
-const Footer = lazy(() => import("@/components/birthday/sections/Footer").then(m => ({ default: m.Footer })))
+const Navigation = lazy(() => import("@/components/birthday/sections/layout/Navigation").then(m => ({ default: m.Navigation })))
+const Hero = lazy(() => import("@/components/birthday/sections/hero/Hero").then(m => ({ default: m.Hero })))
+const EventDetails = lazy(() => import("@/components/birthday/sections/event/EventDetails").then(m => ({ default: m.EventDetails })))
+const Itinerary = lazy(() => import("@/components/birthday/sections/event/Itinerary").then(m => ({ default: m.Itinerary })))
+const Tribute = lazy(() => import("@/components/birthday/sections/content/Tribute").then(m => ({ default: m.Tribute })))
+const Gallery = lazy(() => import("@/components/birthday/sections/content/Gallery").then(m => ({ default: m.Gallery })))
+const RSVPSection = lazy(() => import("@/components/birthday/sections/event/RSVPSection").then(m => ({ default: m.RSVPSection })))
+const WishWall = lazy(() => import("@/components/birthday/sections/content/WishWall").then(m => ({ default: m.WishWall })))
+const Footer = lazy(() => import("@/components/birthday/sections/layout/Footer").then(m => ({ default: m.Footer })))
 
 function SectionLoader() {
   return (
