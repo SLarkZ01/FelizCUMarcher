@@ -4,6 +4,9 @@ import { useState } from "react"
 import { BIRTHDAY_CONFIG, INITIAL_WISHES, type Wish } from "@/lib/constants"
 import { formatDateCompact } from "@/lib/date-utils"
 import { Heart, Quote } from "lucide-react"
+import { MagicCard } from "@/components/ui/magic-card"
+import { Marquee } from "@/components/ui/marquee"
+import { ConfettiButton } from "@/components/ui/confetti"
 
 export function WishWall() {
   const [wishes, setWishes] = useState<Wish[]>(INITIAL_WISHES)
@@ -44,6 +47,37 @@ export function WishWall() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">
             Mensajes para {BIRTHDAY_CONFIG.name}
           </h2>
+        </div>
+
+        <Marquee pauseOnHover className="mb-12 [--duration:24s] [--gap:0.75rem]">
+          {[
+            "Feliz cumple, Alan",
+            "22 años de pura buena vibra",
+            "Los Tilines Mexico presente",
+            "Que se cumplan todas tus metas",
+          ].map((line) => (
+            <span
+              key={line}
+              className="inline-flex items-center rounded-full border border-border/50 bg-background/40 px-4 py-2 text-xs tracking-[0.2em] uppercase text-accent"
+            >
+              {line}
+            </span>
+          ))}
+        </Marquee>
+
+        <div className="mb-10 text-center">
+          <ConfettiButton
+            aria-label="Lanzar confeti para Alan"
+            className="border border-accent/50 bg-accent/10 px-8 py-3 text-xs tracking-[0.2em] uppercase text-accent hover:bg-accent/20"
+            options={{
+              particleCount: 90,
+              spread: 80,
+              startVelocity: 40,
+              origin: { y: 0.7 },
+            }}
+          >
+            Celebrar a Alan
+          </ConfettiButton>
         </div>
 
         {/* Wish form */}
@@ -108,12 +142,15 @@ export function WishWall() {
 
         {/* Wishes grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wishes.map((wish, index) => (
-            <div 
+          {wishes.map((wish) => (
+            <MagicCard
               key={wish.id}
-              className="group relative p-8 bg-background/50 border border-border/30
-                        hover:border-accent/30 transition-colors duration-500"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative p-8 bg-background/50 border border-border/30"
+              gradientSize={220}
+              gradientFrom="#C9A84C"
+              gradientTo="#942B2B"
+              gradientColor="#251313"
+              gradientOpacity={0.35}
             >
               {/* Quote icon */}
               <Quote 
@@ -134,7 +171,7 @@ export function WishWall() {
                   {formatDateCompact(wish.date)}
                 </span>
               </div>
-            </div>
+            </MagicCard>
           ))}
         </div>
       </div>

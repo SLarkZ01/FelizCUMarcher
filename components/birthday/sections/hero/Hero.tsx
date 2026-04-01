@@ -2,14 +2,15 @@
 
 import { ChevronDown } from "lucide-react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
-import { FallingPetals } from "./FallingPetals"
 import { useCountdown } from "@/hooks/useCountdown"
+import { Spotlight } from "@/components/ui/spotlight"
+import { SparklesText } from "@/components/ui/sparkles-text"
 
 export function Hero() {
   const { days, hours, minutes } = useCountdown(BIRTHDAY_CONFIG.birthdayDate)
 
   const scrollToDetails = () => {
-    document.getElementById("details")?.scrollIntoView({ behavior: "smooth" })
+    document.getElementById("mensaje")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -19,8 +20,11 @@ export function Hero() {
                  overflow-hidden noise-overlay"
       aria-label="Hero"
     >
-      <FallingPetals />
-      
+      <Spotlight
+        className="-top-20 left-0 md:-top-28 md:left-1/4"
+        fill="hsl(356 55% 37%)"
+      />
+
       {/* Ambient glow effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-glow-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-glow-pulse animation-delay-500" />
@@ -43,9 +47,13 @@ export function Hero() {
             </span>
           </h1>
           <h1 className="opacity-0 animate-fade-up animation-delay-400">
-            <span className="block text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-serif italic text-primary tracking-tight">
+            <SparklesText
+              sparklesCount={7}
+              colors={{ first: "#C9A84C", second: "#FDF6EC" }}
+              className="block text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-serif italic text-primary tracking-tight"
+            >
               {BIRTHDAY_CONFIG.eventHighlight}
-            </span>
+            </SparklesText>
           </h1>
           <h1 className="opacity-0 animate-fade-up animation-delay-500">
             <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-foreground mt-4 tracking-tight">

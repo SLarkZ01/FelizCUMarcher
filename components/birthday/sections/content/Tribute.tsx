@@ -2,6 +2,7 @@
 
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { Heart } from "lucide-react"
+import { MagicCard } from "@/components/ui/magic-card"
 
 export function Tribute() {
   return (
@@ -32,11 +33,15 @@ export function Tribute() {
 
         {/* Qualities grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {BIRTHDAY_CONFIG.qualities.map((quality, index) => (
-            <div 
+          {BIRTHDAY_CONFIG.qualities.map((quality) => (
+            <MagicCard
               key={quality.title}
               className="group relative p-8 text-center"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              gradientSize={180}
+              gradientFrom="#C9A84C"
+              gradientTo="#942B2B"
+              gradientColor="#1B0F0F"
+              gradientOpacity={0.25}
             >
               {/* Corner ornaments */}
               <div className="ornament-corner top-left group-hover:opacity-60 transition-opacity" />
@@ -56,7 +61,7 @@ export function Tribute() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {quality.description}
               </p>
-            </div>
+            </MagicCard>
           ))}
         </div>
 
