@@ -22,11 +22,11 @@ const globeConfig = {
   directionalLeftLight: "#ffffff",
   directionalTopLight: "#ffefd0",
   pointLight: "#942B2B",
-  arcTime: 1700,
-  arcLength: 0.72,
+  arcTime: 850,
+  arcLength: 0.82,
   rings: 1,
   maxRings: 3,
-  initialPosition: { lat: 16, lng: -94 },
+  initialPosition: { lat: 17, lng: -92 },
   autoRotate: true,
   autoRotateSpeed: 0.55,
 } as const
@@ -50,21 +50,50 @@ function toVisibleColor(hex: string) {
 }
 
 export function FriendshipGlobe() {
-  const arcData = useMemo(
-    () =>
-      BIRTHDAY_CONFIG.globeConnections.map((connection) => ({
-        order: connection.order,
-        startLat: connection.startLat,
-        startLng: connection.startLng,
-        endLat: connection.endLat,
-        endLng: connection.endLng,
-        arcAlt: connection.arcAlt,
-        color: toVisibleColor(connection.color),
-        startColor: toVisibleColor(connection.startColor),
-        endColor: toVisibleColor(connection.endColor),
-      })),
-    []
-  )
+  const network = useMemo(() => {
+    const people = BIRTHDAY_CONFIG.globePeople
+    const entries: Array<{
+      order: number
+      label: string
+      startLat: number
+      startLng: number
+      endLat: number
+      endLng: number
+      arcAlt: number
+      color: string
+      startColor: string
+      endColor: string
+    }> = []
+
+    let order = 1
+
+    for (let i = 0; i < people.length; i++) {
+      for (let j = i + 1; j < people.length; j++) {
+        const personA = people[i]
+        const personB = people[j]
+        const isEvenOrder = order % 2 === 0
+        const from = isEvenOrder ? personB : personA
+        const to = isEvenOrder ? personA : personB
+
+        entries.push({
+          order,
+          label: `${from.name} - ${to.name}`,
+          startLat: from.lat,
+          startLng: from.lng,
+          endLat: to.lat,
+          endLng: to.lng,
+          arcAlt: 0.16 + (order % 4) * 0.05,
+          color: toVisibleColor(to.color),
+          startColor: toVisibleColor(from.color),
+          endColor: toVisibleColor(to.color),
+        })
+
+        order += 1
+      }
+    }
+
+    return entries
+  }, [])
 
   return (
     <section id="conexion" className="relative py-28 px-4 bg-surface/40" aria-label="Conexion del grupo en el mundo">
@@ -79,7 +108,7 @@ export function FriendshipGlobe() {
 
         <div className="relative overflow-hidden border border-border/40 bg-background/55">
           <div className="h-[440px] md:h-[560px] lg:h-[620px]">
-            <WorldNoSSR data={arcData} globeConfig={globeConfig} />
+            <WorldNoSSR data={network} globeConfig={globeConfig} />
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
         </div>
@@ -101,7 +130,7 @@ export function FriendshipGlobe() {
         </div>
 
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-xs sm:text-sm text-muted-foreground">
-          {BIRTHDAY_CONFIG.globeConnections.map((connection) => (
+          {network.map((connection) => (
             <div key={connection.order} className="border border-border/35 bg-background/45 px-4 py-3">
               {connection.label}
             </div>

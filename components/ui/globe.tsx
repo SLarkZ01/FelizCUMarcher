@@ -168,11 +168,23 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
       .arcColor((e: any) => (e as { color: string }).color)
       .arcAltitude((e) => (e as { arcAlt: number }).arcAlt * 1)
-      .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
-      .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
-      .arcDashGap(15)
-      .arcDashAnimateTime(() => defaultProps.arcTime);
+      .arcStroke((e) => {
+        const seed = pseudoRandom((e as { order: number }).order * 11.3);
+        return [0.26, 0.3, 0.34][Math.floor(seed * 3)];
+      })
+      .arcDashLength((e) => {
+        const seed = pseudoRandom((e as { order: number }).order * 7.1);
+        return Math.max(0.58, Math.min(0.9, defaultProps.arcLength - 0.1 + seed * 0.22));
+      })
+      .arcDashInitialGap((e) => {
+        const seed = pseudoRandom((e as { order: number }).order * 5.7);
+        return seed * 8;
+      })
+      .arcDashGap(5)
+      .arcDashAnimateTime((e) => {
+        const seed = pseudoRandom((e as { order: number }).order * 9.7);
+        return defaultProps.arcTime * (0.72 + seed * 0.75);
+      });
 
     globeRef.current
       .pointsData(filteredPoints)
@@ -225,7 +237,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         }));
 
       globeRef.current.ringsData(ringsData);
-    }, 2000);
+    }, 900);
 
     return () => {
       clearInterval(interval);
@@ -307,4 +319,9 @@ export function genRandomNumbers(min: number, max: number, count: number) {
   }
 
   return arr;
+}
+
+function pseudoRandom(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
 }
