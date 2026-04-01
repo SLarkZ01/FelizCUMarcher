@@ -16,6 +16,7 @@
 - `components/birthday/sections/hero/Hero.tsx`
 - `components/birthday/sections/content/Tribute.tsx`
 - `components/birthday/sections/content/Gallery.tsx`
+- `components/birthday/sections/content/FriendshipGlobe.tsx`
 - `components/birthday/sections/content/WishWall.tsx`
 - `components/birthday/sections/layout/Footer.tsx`
 
@@ -29,6 +30,7 @@
 - `components/ui/confetti.tsx` (Magic UI)
 - `components/ui/marquee.tsx` (Magic UI)
 - `components/ui/overlays/dialog.tsx` (shadcn/radix wrapper para modales)
+- `components/ui/globe.tsx` (Aceternity GitHub Globe)
 
 ## Media assets activos
 
@@ -36,6 +38,7 @@
 - Videos de galería en `public/videos/`.
 - Capturas de referencia manual en `public/image/`.
 - Metadatos de medios (título, alt/caption, poster, `width/height`) centralizados en `lib/constants.ts`.
+- Dataset geográfico del globo en `data/globe.json`.
 
 ## Galería actual (implementación)
 
@@ -46,6 +49,14 @@
   - selector rápido de videos con carrusel sticky en desktop,
   - selector de videos por carrusel también en móvil,
   - reproductor principal de video con layout responsive por breakpoint.
+
+## Conexión global (implementación)
+
+- `components/birthday/sections/content/FriendshipGlobe.tsx` contiene:
+  - configuración visual del globo,
+  - render de `World` con `dynamic(..., { ssr: false })`,
+  - datos de arcos derivados de `BIRTHDAY_CONFIG.globeConnections`,
+  - fallback textual en cards para describir conexiones del grupo.
 
 ## Notas de arquitectura
 

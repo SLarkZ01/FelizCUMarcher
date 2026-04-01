@@ -17,6 +17,7 @@
 ## Componentes externos ya integrados
 
 - Aceternity: `Spotlight` para profundidad en hero.
+- Aceternity: `Globe` para sección de conexión global.
 - Magic UI:
   - `SparklesText` para énfasis del nombre.
   - `MagicCard` para tarjetas de cualidades/mensajes.
@@ -53,6 +54,13 @@
 - En selector de videos:
   - usar miniaturas homogéneas (`aspect-video`) para evitar saltos visuales por media vertical,
   - usar carrusel en desktop y móvil para consistencia de interacción.
+
+## Sección Globe (`#conexion`)
+
+- Usar `components/ui/globe.tsx` con `dynamic(..., { ssr: false })` para evitar errores de `window` en build SSR.
+- Mantener fondo oscuro y paleta dorado/burdeos para coherencia con el resto del sitio.
+- Definir conexiones de amistades en `lib/constants.ts` y evitar hardcodear coordenadas en el componente.
+- Acompañar el canvas 3D con texto de apoyo (rutas/listado) para reforzar accesibilidad.
 
 ## Convenciones de nombres
 
