@@ -4,15 +4,15 @@ Toda la documentación del proyecto vive en `docs/`.
 
 ## Estructura
 
-- `docs/00-overview/project-overview.md`
-- `docs/01-setup/local-setup.md`
-- `docs/02-architecture/source-layout.md`
-- `docs/03-features/agent-guidelines.md`
-- `docs/04-components/ui-guidelines.md`
-- `docs/05-testing/testing-commands.md`
-- `docs/06-deploy/quality-gates.md`
-- `docs/07-decisions/coding-standards.md`
-- `docs/08-runbooks/agent-runbook.md`
+- `docs/00-overview/project-overview.md`: panorama del proyecto, stack y estado funcional actual.
+- `docs/01-setup/local-setup.md`: instalación local, comandos de desarrollo y build.
+- `docs/02-architecture/source-layout.md`: mapa del código fuente y módulos principales.
+- `docs/03-features/agent-guidelines.md`: funcionalidades vigentes de la web y cómo personalizarlas.
+- `docs/04-components/ui-guidelines.md`: lineamientos visuales, tokens y uso de componentes UI.
+- `docs/05-testing/testing-commands.md`: comandos de validación disponibles y pruebas manuales.
+- `docs/06-deploy/quality-gates.md`: checklist obligatorio antes de cerrar cambios.
+- `docs/07-decisions/coding-standards.md`: estándares de TypeScript, imports, nombres y git hygiene.
+- `docs/08-runbooks/agent-runbook.md`: flujo operativo para cambios de código/documentación.
 
 ## Notas
 

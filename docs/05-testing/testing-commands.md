@@ -10,6 +10,17 @@
 - Si se solicita ejecutar tests, informa que no hay runner configurado.
 - Si se agregan tests con Bun, prueba con `bun test`.
 
+## Validación usada hoy en el proyecto
+
+- Build de verificación: `bun run build`
+- Lint disponible: `bun run lint`
+- Desarrollo local: `bun run dev`
+
+En ausencia de tests automatizados, la validación mínima para cambios UI es:
+
+- `bun run build` sin errores.
+- Revisión manual en desktop y móvil de secciones visibles (`hero`, `mensaje`, `galería`, `mensajes`).
+
 ## Patrones para ejecutar una sola prueba
 
 - Bun por archivo: `bun test path/to/file.test.ts`
