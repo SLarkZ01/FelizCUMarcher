@@ -21,6 +21,17 @@ En ausencia de tests automatizados, la validación mínima para cambios UI es:
 - `bun run build` sin errores.
 - Revisión manual en desktop y móvil de secciones visibles (`hero`, `mensaje`, `galería`, `mensajes`).
 
+## Checklist manual recomendado para galería actual
+
+- Desktop (`1366x768` o similar):
+  - foco de imágenes sin desbordes,
+  - modal abre/cierra por encima del navbar,
+  - selector rápido de videos sticky usable.
+- Móvil (`390x844` o similar):
+  - grilla de imágenes tocable,
+  - modal de imagen con botón de cierre visible,
+  - carrusel de selección de videos visible y sincronizado con el video activo.
+
 ## Patrones para ejecutar una sola prueba
 
 - Bun por archivo: `bun test path/to/file.test.ts`

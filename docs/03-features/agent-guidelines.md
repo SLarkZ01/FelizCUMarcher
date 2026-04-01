@@ -5,8 +5,14 @@
 - Hero con countdown a `2026-04-02`, encabezado principal y CTA de scroll.
 - Sección de mensaje/tributo con cualidades y cita.
 - Galería con assets reales de `public/images/` y `public/videos/`.
-- Sección de imágenes con card destacada + grilla; cada imagen abre modal ampliado con título y caption.
-- Sección de videos con reproductor principal + selector de clips en grilla.
+- Sección de imágenes:
+  - móvil: card destacada + grilla tocable,
+  - desktop: layout tipo focus cards con expansión por hover/focus,
+  - todas las imágenes abren modal ampliado con título y caption.
+- Sección de videos:
+  - reproductor principal responsive,
+  - selector rápido en carrusel sticky para desktop,
+  - selector en carrusel también en móvil (sin grilla legacy).
 - Muro de mensajes con formulario local y lista dinámica de deseos.
 - Interacciones visuales añadidas: `Spotlight`, `SparklesText`, `MagicCard`, `Marquee`, `ConfettiButton`.
 

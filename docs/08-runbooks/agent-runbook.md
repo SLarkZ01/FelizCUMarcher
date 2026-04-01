@@ -17,6 +17,9 @@
 3. Si cambia la UX o navegación, actualizar:
    - `docs/03-features/agent-guidelines.md`
    - `docs/06-deploy/quality-gates.md`
-4. Cerrar con validación mínima reportable:
+4. Si cambia la galería (imágenes/videos/modales), actualizar además:
+   - `docs/04-components/ui-guidelines.md`
+   - `docs/05-testing/testing-commands.md`
+5. Cerrar con validación mínima reportable:
    - `bun run build`
    - chequeo manual de la home.

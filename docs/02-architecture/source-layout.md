@@ -34,7 +34,18 @@
 
 - Imágenes de galería en `public/images/`.
 - Videos de galería en `public/videos/`.
+- Capturas de referencia manual en `public/image/`.
 - Metadatos de medios (título, alt/caption, poster, `width/height`) centralizados en `lib/constants.ts`.
+
+## Galería actual (implementación)
+
+- `components/birthday/sections/content/Gallery.tsx` contiene:
+  - bloque destacado de imagen en móvil,
+  - carrusel tipo focus para imágenes en desktop,
+  - modal de imagen por item (Dialog),
+  - selector rápido de videos con carrusel sticky en desktop,
+  - selector de videos por carrusel también en móvil,
+  - reproductor principal de video con layout responsive por breakpoint.
 
 ## Notas de arquitectura
 

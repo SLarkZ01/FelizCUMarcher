@@ -48,6 +48,11 @@
   - limitar altura con `max-h` relativo al viewport,
   - permitir scroll vertical del contenido,
   - mantener botón de cierre siempre visible y con contraste.
+- En desktop, la galería de imágenes prioriza layout tipo focus cards (paneles flexibles por hover/focus).
+- En móvil, la galería de imágenes mantiene grilla de 2 columnas para tap targets estables.
+- En selector de videos:
+  - usar miniaturas homogéneas (`aspect-video`) para evitar saltos visuales por media vertical,
+  - usar carrusel en desktop y móvil para consistencia de interacción.
 
 ## Convenciones de nombres
 

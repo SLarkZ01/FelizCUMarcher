@@ -24,3 +24,8 @@ Este repositorio contiene una web de cumpleaños personalizada para Alan, con to
 - Integraciones visuales recientes:
   - Aceternity UI: `Spotlight`.
   - Magic UI: `SparklesText`, `MagicCard`, `ConfettiButton`, `Marquee`.
+- Estado actual de galería:
+  - Imágenes y videos reales servidos desde `public/images/` y `public/videos/`.
+  - Metadatos de media (`width/height`, captions y posters) centralizados en `lib/constants.ts`.
+  - Imágenes con modal ampliado (overlay global por encima del navbar).
+  - Videos con reproductor principal y selector por carrusel en desktop y móvil.
