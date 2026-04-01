@@ -28,6 +28,13 @@
 - `components/ui/magic-card.tsx` (Magic UI)
 - `components/ui/confetti.tsx` (Magic UI)
 - `components/ui/marquee.tsx` (Magic UI)
+- `components/ui/overlays/dialog.tsx` (shadcn/radix wrapper para modales)
+
+## Media assets activos
+
+- Imágenes de galería en `public/images/`.
+- Videos de galería en `public/videos/`.
+- Metadatos de medios (título, alt/caption, poster, `width/height`) centralizados en `lib/constants.ts`.
 
 ## Notas de arquitectura
 

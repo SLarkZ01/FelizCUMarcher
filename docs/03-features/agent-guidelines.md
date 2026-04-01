@@ -4,13 +4,17 @@
 
 - Hero con countdown a `2026-04-02`, encabezado principal y CTA de scroll.
 - Sección de mensaje/tributo con cualidades y cita.
-- Galería con layout tipo bento usando imágenes placeholder.
+- Galería con assets reales de `public/images/` y `public/videos/`.
+- Sección de imágenes con card destacada + grilla; cada imagen abre modal ampliado con título y caption.
+- Sección de videos con reproductor principal + selector de clips en grilla.
 - Muro de mensajes con formulario local y lista dinámica de deseos.
 - Interacciones visuales añadidas: `Spotlight`, `SparklesText`, `MagicCard`, `Marquee`, `ConfettiButton`.
 
 ## Personalización principal
 
 - Datos de contenido centralizados en `lib/constants.ts`.
+- En `lib/constants.ts` las fotos y videos incluyen `width` y `height` reales para respetar proporciones.
+- En `lib/constants.ts` las fotos incluyen `caption` para mostrar texto en el modal ampliado.
 - Si se cambia persona/fecha/copy/firma, prioriza editar `lib/constants.ts` antes que hardcodear textos.
 - Anchors de navegación vigentes: `#hero`, `#mensaje`, `#galeria`, `#mensajes`.
 

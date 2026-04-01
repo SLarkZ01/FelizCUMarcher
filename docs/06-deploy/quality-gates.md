@@ -13,6 +13,9 @@
 - Verifica que el hero no tenga artefactos visuales sobre el navbar.
 - Confirma legibilidad de texto en fondos oscuros (contraste suficiente).
 - Si se introducen nuevos componentes visuales, validar carga y render en `bun run build`.
+- Si hay modales/overlays, validar que queden por encima del navbar y que el botón de cierre sea visible en móvil y desktop.
+- En galería de medios, verificar que fotos y videos no se recorten (ratio dinámico respetado).
+- Probar al menos una imagen panorámica y una vertical en modal para confirmar `object-contain` + límites de viewport.
 
 ## Ejecución en producción
 

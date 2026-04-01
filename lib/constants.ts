@@ -62,15 +62,15 @@ export const BIRTHDAY_CONFIG = {
   
   // Gallery photos
   photos: [
-    { id: 1, url: "/images/yo.webp", title: "Thomas core", alt: "Un bebe random durmiendo", aspect: "portrait", width: 1080, height: 1311 },
-    { id: 2, url: "/images/eldarkiel.webp", title: "Como se siente darkiel", alt: "Foto de recuerdo con Darkiel", aspect: "landscape", width: 1079, height: 790 },
-    { id: 3, url: "/images/elewualdo.webp", title: "Foto random del edu", alt: "El edu de la vil nada", aspect: "portrait", width: 1200, height: 1600 },
-    { id: 4, url: "/images/jorlorenovia.webp", title: "Jor lore", alt: "Jor si es salao mano", aspect: "landscape", width: 1052, height: 788 },
-    { id: 5, url: "/images/lagordaesmia.webp", title: "El edu y mondragon cuando ven una gorda", alt: "Edu y mondragon con las gordas", aspect: "landscape", width: 1080, height: 786 },
-    { id: 6, url: "/images/lashuntrixyyo.webp", title: "Foto del grupo", alt: "Goku con camisa de las huntrix", aspect: "square", width: 640, height: 640 },
-    { id: 7, url: "/images/perritonicolas.webp", title: "Mondragon en R.E.P.O", alt: "Me cago en tu pta madre", aspect: "square", width: 1053, height: 1076 },
-    { id: 8, url: "/images/whoisthisguy.webp", title: "Who is this guy?", alt: "Who is this guy?", aspect: "landscape", width: 1080, height: 816 },
-    { id: 9, url: "/images/yocondosviejas.webp", title: "Me detonan dos altas en roblox", alt: "Con dos viejas encima", aspect: "landscape", width: 3840, height: 2160 },
+    { id: 1, url: "/images/yo.webp", title: "Thomas core", alt: "Un bebe random durmiendo", caption: "Archivo clasico para abrir la galeria.", aspect: "portrait", width: 1080, height: 1311 },
+    { id: 2, url: "/images/eldarkiel.webp", title: "Como se siente darkiel", alt: "Foto de recuerdo con Darkiel", caption: "Retrato con energia de partida rankeada.", aspect: "landscape", width: 1079, height: 790 },
+    { id: 3, url: "/images/elewualdo.webp", title: "Foto random del edu", alt: "El edu de la vil nada", caption: "Momento espontaneo de la banda.", aspect: "portrait", width: 1200, height: 1600 },
+    { id: 4, url: "/images/jorlorenovia.webp", title: "Jor lore", alt: "Jor si es salao mano", caption: "Snapshot de anecdotas inmortales.", aspect: "landscape", width: 1052, height: 788 },
+    { id: 5, url: "/images/lagordaesmia.webp", title: "El edu y mondragon cuando ven una gorda", alt: "Edu y mondragon con las gordas", caption: "La camara capto el plot twist del dia.", aspect: "landscape", width: 1080, height: 786 },
+    { id: 6, url: "/images/lashuntrixyyo.webp", title: "Foto del grupo", alt: "Goku con camisa de las huntrix", caption: "Foto cuadrada para el album oficial.", aspect: "square", width: 640, height: 640 },
+    { id: 7, url: "/images/perritonicolas.webp", title: "Mondragon en R.E.P.O", alt: "Me cago en tu pta madre", caption: "El crossover que nadie esperaba.", aspect: "square", width: 1053, height: 1076 },
+    { id: 8, url: "/images/whoisthisguy.webp", title: "Who is this guy?", alt: "Who is this guy?", caption: "Frame misterioso para debate eterno.", aspect: "landscape", width: 1080, height: 816 },
+    { id: 9, url: "/images/yocondosviejas.webp", title: "Me detonan dos altas en roblox", alt: "Con dos viejas encima", caption: "Final boss de la coleccion de recuerdos.", aspect: "landscape", width: 3840, height: 2160 },
   ],
 
   // Gallery videos

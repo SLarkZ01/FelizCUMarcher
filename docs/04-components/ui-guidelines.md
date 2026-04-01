@@ -22,12 +22,32 @@
   - `MagicCard` para tarjetas de cualidades/mensajes.
   - `Marquee` para frases en loop.
   - `ConfettiButton` como interacción celebratoria explícita.
+- Overlay UI:
+  - `components/ui/overlays/dialog.tsx` (Radix Dialog envuelto con estilos del proyecto).
 
 ## Criterios de uso
 
 - No sobrecargar una misma sección con demasiados efectos animados.
 - Mantener contraste legible en texto sobre fondos oscuros.
 - Priorizar animaciones en `transform` y `opacity` para mejor rendimiento.
+
+## Z-index y superposiciones
+
+- La navegación usa una capa alta (`z-[100]`).
+- Los modales deben renderizar por encima del navbar para no bloquear el cierre.
+- `Dialog` quedó configurado con capas elevadas:
+  - overlay: `z-[220]`
+  - contenido: `z-[230]`
+- Si se agrega otro overlay global (drawer, popover full-screen), mantener una escala consistente por encima de `z-[100]`.
+
+## Galería de medios (criterio visual actual)
+
+- Imágenes y videos deben conservar su relación de aspecto real (`width/height` desde `lib/constants.ts`).
+- Para evitar recortes no deseados, usar `object-contain` en vistas ampliadas o en contenedores de ratio dinámica.
+- En modales de imagen:
+  - limitar altura con `max-h` relativo al viewport,
+  - permitir scroll vertical del contenido,
+  - mantener botón de cierre siempre visible y con contraste.
 
 ## Convenciones de nombres
 

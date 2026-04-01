@@ -1,18 +1,41 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Image from "next/image"
-import { Play } from "lucide-react"
+import { Play, Expand, ChevronLeft, ChevronRight } from "lucide-react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { MagicCard } from "@/components/ui/magic-card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/data/carousel"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/overlays/dialog"
 
 export function Gallery() {
   const [activeVideoId, setActiveVideoId] = useState<number>(BIRTHDAY_CONFIG.videos[0]?.id ?? 1)
+  const [thumbsApi, setThumbsApi] = useState<CarouselApi>()
 
   const activeVideo = useMemo(
     () => BIRTHDAY_CONFIG.videos.find((video) => video.id === activeVideoId) ?? BIRTHDAY_CONFIG.videos[0],
     [activeVideoId]
   )
+  const activeVideoIndex = useMemo(
+    () => Math.max(0, BIRTHDAY_CONFIG.videos.findIndex((video) => video.id === activeVideoId)),
+    [activeVideoId]
+  )
+
+  useEffect(() => {
+    if (!thumbsApi) return
+    thumbsApi.scrollTo(activeVideoIndex)
+  }, [thumbsApi, activeVideoIndex])
 
   const featuredPhoto = BIRTHDAY_CONFIG.photos[0]
   const galleryPhotos = BIRTHDAY_CONFIG.photos.slice(1)
@@ -26,7 +49,7 @@ export function Gallery() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-accent text-xs tracking-[0.4em] uppercase font-[var(--font-display)]">
-            Galeria random
+            Galeria
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mt-4">
             Con los panas
@@ -78,30 +101,60 @@ export function Gallery() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {galleryPhotos.map((photo) => (
-              <button
-                key={photo.id}
-                type="button"
-                className="group relative overflow-hidden border border-border/35 bg-background/40 text-left"
-                aria-label={photo.title}
-              >
-                <div
-                  className="relative"
-                  style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
-                >
-                  <Image
-                    src={photo.url}
-                    alt={photo.alt}
-                    fill
-                    className="object-contain bg-black/25 transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                </div>
+              <Dialog key={photo.id}>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    className="group relative overflow-hidden border border-border/35 bg-background/40 text-left"
+                    aria-label={`Ampliar imagen: ${photo.title}`}
+                  >
+                    <div
+                      className="relative"
+                      style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
+                    >
+                      <Image
+                        src={photo.url}
+                        alt={photo.alt}
+                        fill
+                        className="object-contain bg-black/25 transition-transform duration-500 group-hover:scale-[1.02]"
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                      <span className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full border border-accent/50 bg-background/70 text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <Expand className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
 
-                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                  <p className="text-[11px] sm:text-xs tracking-[0.18em] uppercase text-accent">{photo.title}</p>
-                </div>
-              </button>
+                    <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                      <p className="text-[11px] sm:text-xs tracking-[0.18em] uppercase text-accent">{photo.title}</p>
+                    </div>
+                  </button>
+                </DialogTrigger>
+
+                <DialogContent
+                  showCloseButton
+                  className="w-[min(1100px,96vw)] max-w-none max-h-[92vh] overflow-y-auto border-border/60 bg-background/95 p-4 sm:p-6 [&_[data-slot=dialog-close]]:top-3 [&_[data-slot=dialog-close]]:right-3 [&_[data-slot=dialog-close]]:opacity-100 [&_[data-slot=dialog-close]]:border [&_[data-slot=dialog-close]]:border-accent/50 [&_[data-slot=dialog-close]]:bg-background/85 [&_[data-slot=dialog-close]]:text-accent"
+                >
+                  <div className="space-y-4">
+                    <DialogTitle className="font-serif text-xl sm:text-2xl text-foreground">{photo.title}</DialogTitle>
+
+                    <div className="flex justify-center overflow-hidden border border-border/50 bg-black/40 p-2 sm:p-3">
+                      <Image
+                        src={photo.url}
+                        alt={photo.alt}
+                        width={photo.width}
+                        height={photo.height}
+                        className="h-auto max-h-[70vh] w-auto max-w-full object-contain"
+                        sizes="(max-width: 1200px) 96vw, 1100px"
+                      />
+                    </div>
+
+                    <DialogDescription className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                      {photo.caption}
+                    </DialogDescription>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </div>
@@ -115,6 +168,76 @@ export function Gallery() {
 
         {activeVideo ? (
           <div className="space-y-6">
+            <div className="hidden md:block sticky top-24 z-20">
+              <div className="border border-border/50 bg-background/85 backdrop-blur-sm p-3">
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-xs tracking-[0.2em] uppercase text-accent">Selector rapido</p>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => thumbsApi?.scrollPrev()}
+                      className="inline-flex h-8 w-8 items-center justify-center border border-border/60 text-muted-foreground hover:text-accent hover:border-accent/60 transition-colors"
+                      aria-label="Ver videos anteriores"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => thumbsApi?.scrollNext()}
+                      className="inline-flex h-8 w-8 items-center justify-center border border-border/60 text-muted-foreground hover:text-accent hover:border-accent/60 transition-colors"
+                      aria-label="Ver videos siguientes"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <Carousel
+                  setApi={setThumbsApi}
+                  opts={{ align: "start", dragFree: true }}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-2">
+                    {BIRTHDAY_CONFIG.videos.map((video) => {
+                      const isActive = video.id === activeVideo.id
+
+                      return (
+                        <CarouselItem key={video.id} className="pl-2 basis-[28%] lg:basis-[22%] xl:basis-[18%]">
+                          <button
+                            type="button"
+                            onClick={() => setActiveVideoId(video.id)}
+                            aria-label={`Seleccionar ${video.title}`}
+                            className={`group relative w-full overflow-hidden border text-left transition-all duration-300 ${
+                              isActive
+                                ? "border-accent bg-background/80"
+                                : "border-border/40 bg-background/40 hover:border-accent/50"
+                            }`}
+                          >
+                            <div className="relative aspect-video bg-black/35">
+                              <Image
+                                src={video.poster}
+                                alt={`Miniatura ${video.title}`}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 1280px) 24vw, 18vw"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/15 to-transparent" />
+                              <span className="absolute right-2 top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-accent/60 bg-background/70 text-accent">
+                                <Play className="h-3 w-3" />
+                              </span>
+                            </div>
+                            <div className="px-2 py-2">
+                              <p className="truncate text-[11px] uppercase tracking-[0.15em] text-muted-foreground">{video.title}</p>
+                            </div>
+                          </button>
+                        </CarouselItem>
+                      )
+                    })}
+                  </CarouselContent>
+                </Carousel>
+              </div>
+            </div>
+
             <MagicCard
               className="relative overflow-hidden border border-border/40 bg-background/60 p-0"
               gradientFrom="#C9A84C"
@@ -124,16 +247,31 @@ export function Gallery() {
               gradientSize={260}
             >
               <div
-                className="relative w-full overflow-hidden"
+                className="relative w-full overflow-hidden md:hidden"
                 style={{ aspectRatio: `${activeVideo.width} / ${activeVideo.height}` }}
               >
                 <video
-                  key={activeVideo.id}
+                  key={`${activeVideo.id}-mobile`}
                   controls
                   playsInline
                   preload="metadata"
                   poster={activeVideo.poster}
                   className="h-full w-full object-contain bg-black/40"
+                  aria-label={`Video ${activeVideo.title}`}
+                >
+                  <source src={activeVideo.url} type="video/webm" />
+                  Tu navegador no soporta la reproduccion de video.
+                </video>
+              </div>
+
+              <div className="hidden md:flex w-full h-[72vh] items-center justify-center overflow-hidden bg-black/40 p-3 lg:p-4">
+                <video
+                  key={`${activeVideo.id}-desktop`}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster={activeVideo.poster}
+                  className="max-h-full max-w-full h-auto w-auto object-contain"
                   aria-label={`Video ${activeVideo.title}`}
                 >
                   <source src={activeVideo.url} type="video/webm" />
@@ -153,7 +291,7 @@ export function Gallery() {
               </div>
             </MagicCard>
 
-            <div className="relative">
+            <div className="relative md:hidden">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {BIRTHDAY_CONFIG.videos.map((video) => {
                   const isActive = video.id === activeVideo.id
@@ -170,15 +308,12 @@ export function Gallery() {
                       }`}
                       aria-label={`Seleccionar ${video.title}`}
                     >
-                      <div
-                        className="relative"
-                        style={{ aspectRatio: `${video.width} / ${video.height}` }}
-                      >
+                      <div className="relative aspect-video bg-black/35">
                         <Image
                           src={video.poster}
                           alt={`Miniatura ${video.title}`}
                           fill
-                          className="object-contain bg-black/25 transition-transform duration-500 group-hover:scale-[1.02]"
+                          className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                           sizes="(max-width: 1024px) 50vw, 25vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
