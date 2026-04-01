@@ -9,7 +9,7 @@ export const BIRTHDAY_CONFIG = {
   // Event subtitle
   eventTitle: "Feliz Cumple",
   eventHighlight: "Alan",
-  eventSubtitle: "22 años contigo",
+  eventSubtitle: "22 años",
   
   // Birthday date (format: YYYY-MM-DD)
   birthdayDate: "2026-04-02",
@@ -29,11 +29,11 @@ export const BIRTHDAY_CONFIG = {
   dressCode: "",
   
   // Personal tribute message
-  message: "Alan, gracias por ser ese amigo que siempre suma, que hace reir en los dias pesados y que convierte cualquier plan sencillo en un recuerdo enorme. Hoy celebramos tus 22 y todo lo bueno que traes a nuestras vidas.",
+  message: "Mano real gracias por ser ese amigo que nos saca una sonrisa en los momentos mas random. Real sin vos en el grupo las cosas no se sienten igual, sos como el rafael de las tortugas ninja. Sin vos se va esa chispa que nos hace reir a todos.",
   
   // Quote for the message section
-  quote: "Que este nuevo año te regale salud, aventuras, risas y metas cumplidas. Te mereces todo lo mejor, hermano.",
-  quoteAuthor: "Tus amigos",
+  quote: "Que este nuevo año saques el pc, te llegue una vieja mas buena que un kevab y que te caiga plata como un bellako.",
+  quoteAuthor: "Los reales",
   
   // From whom the celebration is
   from: "Los Tilines Mexico",
@@ -54,20 +54,35 @@ export const BIRTHDAY_CONFIG = {
   
   // Qualities/traits to celebrate
   qualities: [
-    { title: "Lealtad", description: "Siempre firme para su gente, en las buenas y en las complicadas." },
-    { title: "Humor", description: "Tiene ese talento para sacar una risa justo cuando hace falta." },
-    { title: "Determinación", description: "Cuando se propone algo, lo pelea hasta conseguirlo." },
-    { title: "Gran corazón", description: "Está pendiente de los suyos y siempre apoya de verdad." },
+    { title: "Lealtad", description: "Siempre firme pa su gente, a no ser de que el Edu se ponga hanzo en over" },
+    { title: "Humor", description: "A esa gonorrea siempre saca una risa justo cuando hace falta." },
+    { title: "Determinación", description: "Ese marica es como Toji Fushiguro, no puede vivir sin chamba" },
+    { title: "Gran corazón", description: "'Ni para ligar sirvo, tiro mas hate que cariño' Fuentes? De Ortiz" },
   ],
   
   // Gallery photos
   photos: [
-    { id: 1, url: "https://picsum.photos/seed/alan-cumple-1/800/1000", title: "Pura Buena Vibra", aspect: "portrait" },
-    { id: 2, url: "https://picsum.photos/seed/alan-cumple-2/800/600", title: "Risas de Siempre", aspect: "landscape" },
-    { id: 3, url: "https://picsum.photos/seed/alan-cumple-3/800/800", title: "Momentos Legendarios", aspect: "square" },
-    { id: 4, url: "https://picsum.photos/seed/alan-cumple-4/800/600", title: "Celebrando a Alan", aspect: "landscape" },
-    { id: 5, url: "https://picsum.photos/seed/alan-cumple-5/800/1000", title: "Compas y Recuerdos", aspect: "portrait" },
-    { id: 6, url: "https://picsum.photos/seed/alan-cumple-6/800/800", title: "Otro Año Inolvidable", aspect: "square" },
+    { id: 1, url: "/images/yo.webp", title: "Thomas core", alt: "Un bebe random durmiendo", aspect: "portrait", width: 1080, height: 1311 },
+    { id: 2, url: "/images/eldarkiel.webp", title: "Como se siente darkiel", alt: "Foto de recuerdo con Darkiel", aspect: "landscape", width: 1079, height: 790 },
+    { id: 3, url: "/images/elewualdo.webp", title: "Foto random del edu", alt: "El edu de la vil nada", aspect: "portrait", width: 1200, height: 1600 },
+    { id: 4, url: "/images/jorlorenovia.webp", title: "Jor lore", alt: "Jor si es salao mano", aspect: "landscape", width: 1052, height: 788 },
+    { id: 5, url: "/images/lagordaesmia.webp", title: "El edu y mondragon cuando ven una gorda", alt: "Edu y mondragon con las gordas", aspect: "landscape", width: 1080, height: 786 },
+    { id: 6, url: "/images/lashuntrixyyo.webp", title: "Foto del grupo", alt: "Goku con camisa de las huntrix", aspect: "square", width: 640, height: 640 },
+    { id: 7, url: "/images/perritonicolas.webp", title: "Mondragon en R.E.P.O", alt: "Me cago en tu pta madre", aspect: "square", width: 1053, height: 1076 },
+    { id: 8, url: "/images/whoisthisguy.webp", title: "Who is this guy?", alt: "Who is this guy?", aspect: "landscape", width: 1080, height: 816 },
+    { id: 9, url: "/images/yocondosviejas.webp", title: "Me detonan dos altas en roblox", alt: "Con dos viejas encima", aspect: "landscape", width: 3840, height: 2160 },
+  ],
+
+  // Gallery videos
+  videos: [
+    { id: 1, url: "/videos/anorexicasedetonaperuana.webm", title: "anorexica se detona peruana", poster: "/images/yo.webp", width: 848, height: 478 },
+    { id: 2, url: "/videos/archeresquisoover.webm", title: "archer esquisofrenico en el over", poster: "/images/eldarkiel.webp", width: 848, height: 478 },
+    { id: 3, url: "/videos/archersedetonarandomover.webm", title: "archer no perdona nada", poster: "/images/elewualdo.webp", width: 848, height: 478 },
+    { id: 4, url: "/videos/archersedotonaaledu.webm", title: "archer se dotona al edu", poster: "/images/jorlorenovia.webp", width: 848, height: 478 },
+    { id: 5, url: "/videos/eldarkiel.webm", title: "el darkiel despues de tirarle ulti a mi novia", poster: "/images/lagordaesmia.webp", width: 720, height: 1280 },
+    { id: 6, url: "/videos/mecai.webm", title: "Lesbiana se cae sola y es grabada en directo", poster: "/images/lashuntrixyyo.webp", width: 1920, height: 1080 },
+    { id: 7, url: "/videos/mexicoprime.webm", title: "mexico cuando se tumbaron al mencho", poster: "/images/perritonicolas.webp", width: 474, height: 850 },
+    { id: 8, url: "/videos/sedetonanaldarkiel.webm", title: "se detonan al darkiel los 3 spidemarmans", poster: "/images/whoisthisguy.webp", width: 1280, height: 720 },
   ],
   
   // Social share text
@@ -81,6 +96,7 @@ export const BIRTHDAY_CONFIG = {
 } as const
 
 export type Photo = typeof BIRTHDAY_CONFIG.photos[number]
+export type VideoClip = typeof BIRTHDAY_CONFIG.videos[number]
 
 export interface Wish {
   id: string
