@@ -54,26 +54,26 @@ export function WishWall() {
     <section
       ref={sectionRef}
       id="mensajes"
-      className="relative isolate overflow-hidden px-4 py-28"
+      className="relative isolate h-screen min-h-[100svh] overflow-hidden"
       aria-label="Experiencia inmersiva de cumpleaños"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(201,168,76,0.22),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(148,43,43,0.26),transparent_44%)]" />
-
       <div className="absolute inset-0">
         {hasEnteredSection ? (
           <WebcamPixelGrid
             key={webcamSessionId}
-            gridCols={58}
-            gridRows={42}
-            maxElevation={13}
-            motionSensitivity={0.42}
-            elevationSmoothing={0.14}
+            gridCols={60}
+            gridRows={40}
+            maxElevation={50}
+            motionSensitivity={0.25}
+            elevationSmoothing={0.2}
             colorMode="webcam"
-            backgroundColor="#140d0d"
-            borderColor="#f0dfb4"
-            borderOpacity={0.12}
-            gapRatio={0.14}
-            darken={0.08}
+            backgroundColor="#030303"
+            mirror
+            gapRatio={0.05}
+            invertColors={false}
+            darken={0.6}
+            borderColor="#ffffff"
+            borderOpacity={0.06}
             onWebcamReady={() => setCameraState("ready")}
             onWebcamError={() => setCameraState("denied")}
           />
@@ -82,28 +82,27 @@ export function WishWall() {
         )}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/55 via-background/40 to-background/80" />
-      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:40px_40px]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-black/65" />
 
-      <div className="relative z-10 mx-auto max-w-5xl">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-border/60 bg-background/35 px-6 py-10 text-center shadow-[0_30px_120px_-50px_rgba(0,0,0,0.9)] backdrop-blur-md sm:px-10 sm:py-14">
-          <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 font-[var(--font-display)] text-[11px] tracking-[0.22em] text-accent uppercase">
+      <div className="relative z-10 flex h-full items-center justify-center px-4">
+        <div className="w-full max-w-4xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 font-[var(--font-display)] text-[11px] tracking-[0.22em] text-white/80 uppercase backdrop-blur-sm">
             <Sparkles className="h-3.5 w-3.5" />
             Momento final
           </span>
 
-          <h2 className="mt-6 text-3xl text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="mx-auto mt-7 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
             Esta parte es para vos, {BIRTHDAY_CONFIG.name}
           </h2>
 
           {cameraState === "ready" ? (
             <TextGenerateEffect
-              className="mx-auto mt-6 max-w-2xl font-serif text-base leading-relaxed text-foreground/90 sm:text-lg"
+              className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg"
               words="Feliz cumpleaños, Alan. Gracias por ser de esos amigos que cambian el ambiente apenas aparecen. Que este nuevo año te traiga salud, calma, metas cumplidas y muchas risas con los Tilines."
               duration={0.45}
             />
           ) : (
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-foreground/80 sm:text-base">
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
               {cameraState === "idle" &&
                 "Desliza hasta aqui para activar la experiencia inmersiva."}
               {cameraState === "requesting" &&
@@ -116,7 +115,7 @@ export function WishWall() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <ConfettiButton
               aria-label="Tirar confeti para Alan"
-              className="h-12 min-w-[200px] border border-accent/55 bg-accent/15 px-8 text-xs tracking-[0.24em] uppercase text-accent hover:bg-accent/30"
+              className="h-12 min-w-[200px] rounded-full bg-white px-8 text-xs tracking-[0.24em] uppercase text-black hover:bg-white/90"
               options={{
                 particleCount: 140,
                 spread: 95,
@@ -132,7 +131,7 @@ export function WishWall() {
               <button
                 type="button"
                 onClick={retryCamera}
-                className="inline-flex h-12 min-w-[200px] items-center justify-center gap-2 border border-border/70 bg-background/45 px-6 text-xs tracking-[0.2em] text-foreground/85 uppercase transition-colors hover:bg-background/65"
+                className="inline-flex h-12 min-w-[200px] items-center justify-center gap-2 rounded-full border border-white/25 bg-white/8 px-6 text-xs tracking-[0.2em] text-white uppercase backdrop-blur-sm transition-colors hover:bg-white/14"
               >
                 {cameraState === "denied" ? (
                   <RefreshCcw className="h-4 w-4" />
@@ -146,7 +145,7 @@ export function WishWall() {
             )}
           </div>
 
-          <p className="mt-6 text-[11px] tracking-[0.14em] text-muted-foreground uppercase">
+          <p className="mt-6 text-[11px] tracking-[0.14em] text-white/45 uppercase">
             Fondo interactivo con webcam pixel grid + mensaje animado en tiempo real
           </p>
         </div>

@@ -287,13 +287,6 @@ export type Photo = typeof BIRTHDAY_CONFIG.photos[number]
 export type VideoClip = typeof BIRTHDAY_CONFIG.videos[number]
 export type FriendMessage = typeof BIRTHDAY_CONFIG.friendsMessages[number]
 
-export interface Wish {
-  id: string
-  name: string
-  message: string
-  date: string
-}
-
 export interface RSVPData {
   name: string
   email: string
@@ -302,25 +295,3 @@ export interface RSVPData {
   dietaryRestrictions?: string
   message?: string
 }
-
-// Initial wishes for demonstration
-export const INITIAL_WISHES: Wish[] = [
-  {
-    id: "1",
-    name: "Fer",
-    message: "Feliz cumple, Alan. Que estos 22 vengan con pura cosa buena y muchas metas cumplidas.",
-    date: "2026-03-31",
-  },
-  {
-    id: "2", 
-    name: "Iván",
-    message: "Hermano, gracias por tantas risas y aventuras. Vamos por otro año épico.",
-    date: "2026-04-01",
-  },
-  {
-    id: "3",
-    name: "Sofía",
-    message: "Te mereces un cumpleaños increíble. Disfruta mucho tu día, Alan.",
-    date: "2026-04-01",
-  },
-]

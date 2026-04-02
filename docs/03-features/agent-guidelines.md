@@ -22,7 +22,8 @@
   - solicita permiso de cámara al entrar a la sección,
   - activa texto animado de felicitación cuando la cámara está lista,
   - mantiene `ConfettiButton` para lanzar confeti,
-  - muestra fallback y opción de reintento si se niega el permiso.
+  - muestra fallback y opción de reintento si se niega el permiso,
+  - usa layout full-screen para priorizar el fondo interactivo (estética Aceternity).
 - Interacciones visuales añadidas: `Spotlight`, `SparklesText`, `MagicCard`, `Marquee`, `ConfettiButton`.
 
 ## Personalización principal
