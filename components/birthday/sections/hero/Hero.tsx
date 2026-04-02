@@ -1,15 +1,55 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import { ChevronDown } from "lucide-react"
+
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { useCountdown } from "@/hooks/useCountdown"
+import { useIsMobile } from "@/components/ui/hooks/use-mobile"
 import { Spotlight } from "@/components/ui/spotlight"
 import { SparklesText } from "@/components/ui/sparkles-text"
 import { Confetti, type ConfettiRef } from "@/components/ui/confetti"
 
+const HeroHeadline = memo(function HeroHeadline({
+  title,
+  highlight,
+  subtitle,
+  isMobile,
+}: {
+  title: string
+  highlight: string
+  subtitle: string
+  isMobile: boolean
+}) {
+  return (
+    <div className="mb-16">
+      <h1 className="opacity-0 animate-fade-up animation-delay-300">
+        <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-foreground mb-4 tracking-tight">
+          {title}
+        </span>
+      </h1>
+      <h1 className="opacity-0 animate-fade-up animation-delay-400">
+        <SparklesText
+          sparklesCount={isMobile ? 3 : 7}
+          colors={{ first: "#C9A84C", second: "#FDF6EC" }}
+          className="block text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-serif italic text-primary tracking-tight"
+          optimizeForMobile
+        >
+          {highlight}
+        </SparklesText>
+      </h1>
+      <h1 className="opacity-0 animate-fade-up animation-delay-500">
+        <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-foreground mt-4 tracking-tight">
+          {subtitle}
+        </span>
+      </h1>
+    </div>
+  )
+})
+
 export function Hero() {
   const { days, hours, minutes, seconds, isPast } = useCountdown(BIRTHDAY_CONFIG.birthdayDate)
+  const isMobile = useIsMobile()
   const totalHours = days * 24 + hours
   const confettiRef = useRef<ConfettiRef>(null)
   const [hasMounted, setHasMounted] = useState(false)
@@ -86,28 +126,12 @@ export function Hero() {
           2 de abril de 2026
         </p>
         
-        {/* Main title - dramatic typography like the reference */}
-        <div className="mb-16">
-          <h1 className="opacity-0 animate-fade-up animation-delay-300">
-            <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-foreground mb-4 tracking-tight">
-              {BIRTHDAY_CONFIG.eventTitle}
-            </span>
-          </h1>
-          <h1 className="opacity-0 animate-fade-up animation-delay-400">
-            <SparklesText
-              sparklesCount={7}
-              colors={{ first: "#C9A84C", second: "#FDF6EC" }}
-              className="block text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-serif italic text-primary tracking-tight"
-            >
-              {BIRTHDAY_CONFIG.eventHighlight}
-            </SparklesText>
-          </h1>
-          <h1 className="opacity-0 animate-fade-up animation-delay-500">
-            <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-foreground mt-4 tracking-tight">
-              {BIRTHDAY_CONFIG.eventSubtitle}
-            </span>
-          </h1>
-        </div>
+        <HeroHeadline
+          title={BIRTHDAY_CONFIG.eventTitle}
+          highlight={BIRTHDAY_CONFIG.eventHighlight}
+          subtitle={BIRTHDAY_CONFIG.eventSubtitle}
+          isMobile={isMobile}
+        />
         
         {/* Minimal countdown - like reference image */}
         <div 

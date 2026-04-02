@@ -184,6 +184,17 @@
   }
 }
 
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.35);
+  }
+  40% {
+    opacity: 0.95;
+    transform: translate3d(0, -1px, 0) scale(1);
+  }
+}
+
 .animate-fade-up {
   animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -238,6 +249,11 @@
 
 .animate-spotlight {
   animation: spotlight 2.2s ease 0.35s 1 forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.9s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
 /* Animation delays */
@@ -427,6 +443,10 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-sparkle {
+    animation: none;
+  }
+
   .tilin-audio-player .rhap_main-controls-button {
     transition: none;
   }
