@@ -65,23 +65,15 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/images/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/images/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/svg/icon.svg',
-        type: 'image/svg+xml',
+        url: '/images/tilines/Alan.webp',
+        type: 'image/webp',
       },
     ],
-    apple: '/images/apple-icon.png',
+    shortcut: '/images/tilines/Alan.webp',
+    apple: '/images/tilines/Alan.webp',
   },
 }
 
