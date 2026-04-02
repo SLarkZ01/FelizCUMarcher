@@ -19,6 +19,8 @@
 - Aceternity: `Spotlight` para profundidad en hero.
 - En móvil, el hero usa glow radial centrado en lugar de `Spotlight` SVG para mantener el foco visual sobre el nombre.
 - Aceternity: `Globe` para sección de conexión global.
+- Aceternity: `WebcamPixelGrid` para la sección final inmersiva con cámara.
+- Aceternity: `TextGenerateEffect` para mensaje de cumpleaños animado cuando la cámara está lista.
 - Magic UI:
   - `SparklesText` para énfasis del nombre.
   - `MagicCard` para tarjetas de cualidades/mensajes.

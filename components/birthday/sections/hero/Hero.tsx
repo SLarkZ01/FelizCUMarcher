@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { useCountdown } from "@/hooks/useCountdown"
@@ -12,9 +12,19 @@ export function Hero() {
   const { days, hours, minutes, seconds, isPast } = useCountdown(BIRTHDAY_CONFIG.birthdayDate)
   const totalHours = days * 24 + hours
   const confettiRef = useRef<ConfettiRef>(null)
+  const [hasMounted, setHasMounted] = useState(false)
 
   useEffect(() => {
-    if (!isPast) return
+    setHasMounted(true)
+  }, [])
+
+  const displayIsPast = hasMounted ? isPast : false
+  const displayTotalHours = hasMounted ? totalHours : 0
+  const displayMinutes = hasMounted ? minutes : 0
+  const displaySeconds = hasMounted ? seconds : 0
+
+  useEffect(() => {
+    if (!displayIsPast) return
 
     const burstTimings = [120, 520, 980]
     const timers = burstTimings.map((delay, index) =>
@@ -32,7 +42,7 @@ export function Hero() {
     return () => {
       timers.forEach((timer) => window.clearTimeout(timer))
     }
-  }, [isPast])
+  }, [displayIsPast])
 
   const scrollToDetails = () => {
     document.getElementById("mensaje")?.scrollIntoView({ behavior: "smooth" })
@@ -45,7 +55,7 @@ export function Hero() {
                  overflow-hidden noise-overlay"
       aria-label="Hero"
     >
-      {isPast ? (
+      {displayIsPast ? (
         <Confetti
           ref={confettiRef}
           manualstart
@@ -106,7 +116,7 @@ export function Hero() {
         >
           <div className="text-center">
             <span className="block text-3xl sm:text-4xl font-serif text-foreground">
-              {String(totalHours).padStart(2, "0")}
+               {String(displayTotalHours).padStart(2, "0")}
             </span>
             <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
               Hrs
@@ -114,7 +124,7 @@ export function Hero() {
           </div>
           <div className="text-center">
             <span className="block text-3xl sm:text-4xl font-serif text-foreground">
-              {String(minutes).padStart(2, "0")}
+               {String(displayMinutes).padStart(2, "0")}
             </span>
             <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
               Min
@@ -122,7 +132,7 @@ export function Hero() {
           </div>
           <div className="text-center">
             <span className="block text-3xl sm:text-4xl font-serif text-foreground">
-              {String(seconds).padStart(2, "0")}
+               {String(displaySeconds).padStart(2, "0")}
             </span>
             <span className="text-accent text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1">
               Seg
@@ -130,7 +140,7 @@ export function Hero() {
           </div>
         </div>
 
-        {isPast ? (
+        {displayIsPast ? (
           <p className="text-accent text-xs sm:text-sm uppercase tracking-[0.35em] opacity-0 animate-fade-in animation-delay-800">
             Ya es el cumple
           </p>

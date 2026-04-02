@@ -25,6 +25,8 @@
 ## Componentes UI añadidos recientemente
 
 - `components/ui/spotlight.tsx` (Aceternity)
+- `components/ui/webcam-pixel-grid.tsx` (Aceternity)
+- `components/ui/text-generate-effect.tsx` (Aceternity)
 - `components/ui/sparkles-text.tsx` (Magic UI)
 - `components/ui/magic-card.tsx` (Magic UI)
 - `components/ui/confetti.tsx` (Magic UI)

@@ -18,7 +18,11 @@
   - visualiza amistades entre México, Texas y Colombia,
   - arcos generados automáticamente desde `lib/constants.ts` (`globePeople`),
   - lista textual de rutas para accesibilidad y contexto.
-- Muro de mensajes con formulario local y lista dinámica de deseos.
+- Sección final inmersiva (`#mensajes`) con `WebcamPixelGrid` + `TextGenerateEffect`:
+  - solicita permiso de cámara al entrar a la sección,
+  - activa texto animado de felicitación cuando la cámara está lista,
+  - mantiene `ConfettiButton` para lanzar confeti,
+  - muestra fallback y opción de reintento si se niega el permiso.
 - Interacciones visuales añadidas: `Spotlight`, `SparklesText`, `MagicCard`, `Marquee`, `ConfettiButton`.
 
 ## Personalización principal
