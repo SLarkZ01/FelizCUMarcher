@@ -64,9 +64,9 @@ export function FriendsMessages() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-14 text-center">
           <span className="font-[var(--font-display)] text-xs uppercase tracking-[0.4em] text-accent">Tilines</span>
-          <h2 className="mt-4 text-3xl font-serif text-foreground sm:text-4xl lg:text-5xl">Mensajes de los panas</h2>
+          <h2 className="mt-4 text-3xl font-serif text-foreground sm:text-4xl lg:text-5xl">Mensajes de los reales</h2>
           <p className="mx-auto mt-5 max-w-3xl leading-relaxed text-muted-foreground">
-            Cada color del globo ahora esta prendido en su propia carta. Aqui estan las palabras del grupo para Alan,
+            Cada color los representa a cada uno de ustedes. Aqui estan las palabras del grupo para Alan,
             incluyendo el audio especial de Eduardo.
           </p>
         </div>
