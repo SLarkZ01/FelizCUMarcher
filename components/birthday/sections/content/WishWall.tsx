@@ -88,7 +88,7 @@ export function WishWall() {
         <div className="w-full max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 font-[var(--font-display)] text-[11px] tracking-[0.22em] text-white/80 uppercase backdrop-blur-sm">
             <Sparkles className="h-3.5 w-3.5" />
-            Momento final
+            Cierre del cumple
           </span>
 
           <h2 className="mx-auto mt-7 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
@@ -104,7 +104,7 @@ export function WishWall() {
           ) : (
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
               {cameraState === "idle" &&
-                "Desliza hasta aqui para activar la experiencia inmersiva."}
+                "Desliza hasta aqui para ver el cierre interactivo."}
               {cameraState === "requesting" &&
                 "Esperando permiso de camara... apenas lo aceptes, se activa el mensaje especial."}
               {cameraState === "denied" &&

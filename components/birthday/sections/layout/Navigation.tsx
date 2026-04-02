@@ -60,9 +60,13 @@ export function Navigation() {
                      hover:bg-accent/10 hover:border-accent transition-all duration-300
                      opacity-0 animate-fade-in animation-delay-500"
         >
-          <span>Cumple</span>
-          <span className="text-foreground/60">—</span>
-          <span>{formattedDate}</span>
+          <span>Ir al final</span>
+          {formattedDate ? (
+            <>
+              <span className="text-foreground/60">—</span>
+              <span>{formattedDate}</span>
+            </>
+          ) : null}
         </a>
 
         {/* Mobile Menu Button */}
@@ -111,7 +115,10 @@ export function Navigation() {
                        border border-accent/40 text-accent text-sm tracking-[0.2em] uppercase
                        hover:bg-accent/10 transition-all duration-300"
           >
-            <span>Cumple — {formattedDate}</span>
+            <span>
+              Ir al final
+              {formattedDate ? ` - ${formattedDate}` : ""}
+            </span>
           </a>
         </div>
       </div>

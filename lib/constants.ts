@@ -45,7 +45,7 @@ export const BIRTHDAY_CONFIG = {
     { label: "Galería", href: "#galeria" },
     { label: "Conexión", href: "#conexion" },
     { label: "Tilines", href: "#tilines" },
-    { label: "Mensajes", href: "#mensajes" },
+    { label: "Final", href: "#mensajes" },
   ],
   
   // Event itinerary

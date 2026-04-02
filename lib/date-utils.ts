@@ -19,7 +19,11 @@ const WEEKDAYS_ES = [
  * Format date as "15.06" (day.month)
  */
 export function formatDateShort(dateString: string): string {
-  const date = new Date(dateString + "T12:00:00")
+  const raw = dateString.includes("T") ? dateString : `${dateString}T12:00:00`
+  const date = new Date(raw)
+  if (Number.isNaN(date.getTime())) {
+    return ""
+  }
   const day = String(date.getDate()).padStart(2, "0")
   const month = String(date.getMonth() + 1).padStart(2, "0")
   return `${day}.${month}`
@@ -29,7 +33,11 @@ export function formatDateShort(dateString: string): string {
  * Format date as "domingo, 15 de junio de 2025"
  */
 export function formatDateFull(dateString: string): string {
-  const date = new Date(dateString + "T12:00:00")
+  const raw = dateString.includes("T") ? dateString : `${dateString}T12:00:00`
+  const date = new Date(raw)
+  if (Number.isNaN(date.getTime())) {
+    return ""
+  }
   const weekday = WEEKDAYS_ES[date.getDay()]
   const day = date.getDate()
   const month = MONTHS_ES[date.getMonth()]
@@ -41,7 +49,11 @@ export function formatDateFull(dateString: string): string {
  * Format date as "15 jun"
  */
 export function formatDateCompact(dateString: string): string {
-  const date = new Date(dateString + "T12:00:00")
+  const raw = dateString.includes("T") ? dateString : `${dateString}T12:00:00`
+  const date = new Date(raw)
+  if (Number.isNaN(date.getTime())) {
+    return ""
+  }
   const day = date.getDate()
   const month = MONTHS_SHORT_ES[date.getMonth()]
   return `${day} ${month}`
