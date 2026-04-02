@@ -4,6 +4,7 @@ import { BIRTHDAY_CONFIG, type FriendMessage } from "@/lib/constants"
 import { MagicCard } from "@/components/ui/magic-card"
 import { Marquee } from "@/components/ui/marquee"
 import { Spotlight } from "@/components/ui/spotlight"
+import { FriendAudioPlayer } from "@/components/birthday/sections/content/FriendAudioPlayer"
 
 const fallbackAccent = "#C9A84C"
 
@@ -70,7 +71,7 @@ export function FriendsMessages() {
           </p>
         </div>
 
-        <div className="relative mb-10">
+        <div className="relative mb-10 [mask-image:linear-gradient(to_right,transparent,black_11%,black_89%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_11%,black_89%,transparent)]">
           <Marquee pauseOnHover repeat={5} className="[--duration:30s] [--gap:0.75rem] py-1">
             {orderedMessages.map((friend) => {
               const accent = peopleByKey.get(friend.friendKey)?.color ?? fallbackAccent
@@ -96,8 +97,6 @@ export function FriendsMessages() {
               )
             })}
           </Marquee>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" />
         </div>
 
         <div className="grid auto-rows-fr gap-6 lg:grid-cols-3">
@@ -203,14 +202,11 @@ function FriendCard({
 
                 <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.16em]" style={{ color: withAlpha(lightenHex(accent, 120), 0.95) }}>
                   <Waves className="h-3.5 w-3.5" />
-                  Audio real del tilin
+                  Audio Del Eduardo
                 </div>
 
                 <div className="rounded-xl border p-3" style={{ borderColor: withAlpha(accent, 0.88), backgroundColor: withAlpha(accent, 0.26), boxShadow: `0 0 22px ${withAlpha(accent, 0.24)}` }}>
-                  <audio controls preload="metadata" className="w-full" aria-label="Mensaje de audio de Eduardo">
-                    <source src={friend.audioSrc} type="audio/mpeg" />
-                    Tu navegador no soporta la reproduccion de audio.
-                  </audio>
+                  <FriendAudioPlayer src={friend.audioSrc} name={friend.name} accent={accent} />
                 </div>
               </>
             ) : (

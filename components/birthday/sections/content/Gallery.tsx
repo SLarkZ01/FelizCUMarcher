@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Play, Expand, ChevronLeft, ChevronRight } from "lucide-react"
 import { BIRTHDAY_CONFIG } from "@/lib/constants"
 import { MagicCard } from "@/components/ui/magic-card"
+import { StyledVideoPlayer } from "@/components/birthday/sections/content/StyledVideoPlayer"
 import {
   Carousel,
   CarouselContent,
@@ -325,36 +326,15 @@ export function Gallery() {
               gradientSize={260}
             >
               <div
-                className="relative w-full overflow-hidden md:hidden"
+                className="relative w-full overflow-hidden bg-black/40"
                 style={{ aspectRatio: `${activeVideo.width} / ${activeVideo.height}` }}
               >
-                <video
-                  key={`${activeVideo.id}-mobile`}
-                  controls
-                  playsInline
-                  preload="metadata"
+                <StyledVideoPlayer
+                  src={activeVideo.url}
                   poster={activeVideo.poster}
-                  className="h-full w-full object-contain bg-black/40"
-                  aria-label={`Video ${activeVideo.title}`}
-                >
-                  <source src={activeVideo.url} type="video/webm" />
-                  Tu navegador no soporta la reproduccion de video.
-                </video>
-              </div>
-
-              <div className="hidden md:flex w-full h-[72vh] items-center justify-center overflow-hidden bg-black/40 p-3 lg:p-4">
-                <video
-                  key={`${activeVideo.id}-desktop`}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={activeVideo.poster}
-                  className="max-h-full max-w-full h-auto w-auto object-contain"
-                  aria-label={`Video ${activeVideo.title}`}
-                >
-                  <source src={activeVideo.url} type="video/webm" />
-                  Tu navegador no soporta la reproduccion de video.
-                </video>
+                  title={activeVideo.title}
+                  className="h-full w-full"
+                />
               </div>
 
               <div className="flex items-center justify-between gap-4 border-t border-border/40 bg-background/80 px-5 py-4 sm:px-6">
