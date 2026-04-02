@@ -97,7 +97,7 @@ export function Gallery() {
                   <p className="text-xs tracking-[0.25em] uppercase text-accent">Destacada</p>
                   <h4 className="mt-2 text-2xl sm:text-3xl font-serif text-foreground">{featuredPhoto.title}</h4>
                   <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    Un recuerdo que abre la galeria y marca el tono de toda la celebracion.
+                    Con dos viejas encima, y una de ellas es Brigitte, la otra si ni puta idea.
                   </p>
                 </div>
               </div>
@@ -293,12 +293,13 @@ export function Gallery() {
                             }`}
                           >
                             <div className="relative aspect-video bg-black/35">
-                              <Image
-                                src={video.poster}
-                                alt={`Miniatura ${video.title}`}
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 1280px) 24vw, 18vw"
+                              <video
+                                src={video.url}
+                                preload="metadata"
+                                muted
+                                playsInline
+                                className="pointer-events-none absolute inset-0 h-full w-full object-contain"
+                                aria-hidden="true"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/15 to-transparent" />
                               <span className="absolute right-2 top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-accent/60 bg-background/70 text-accent">
@@ -325,13 +326,9 @@ export function Gallery() {
               gradientOpacity={0.35}
               gradientSize={260}
             >
-              <div
-                className="relative w-full overflow-hidden bg-black/40"
-                style={{ aspectRatio: `${activeVideo.width} / ${activeVideo.height}` }}
-              >
+              <div className="relative w-full overflow-hidden bg-black/40 aspect-video md:aspect-auto md:h-[52vh] lg:h-[56vh] xl:h-[60vh] md:max-h-[680px]">
                 <StyledVideoPlayer
                   src={activeVideo.url}
-                  poster={activeVideo.poster}
                   title={activeVideo.title}
                   className="h-full w-full"
                 />
@@ -372,12 +369,13 @@ export function Gallery() {
                           aria-label={`Seleccionar ${video.title}`}
                         >
                           <div className="relative aspect-video bg-black/35">
-                            <Image
-                              src={video.poster}
-                              alt={`Miniatura ${video.title}`}
-                              fill
-                              className="object-contain"
-                              sizes="70vw"
+                            <video
+                              src={video.url}
+                              preload="metadata"
+                              muted
+                              playsInline
+                              className="pointer-events-none absolute inset-0 h-full w-full object-contain"
+                              aria-hidden="true"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                             <span className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full border border-accent/60 bg-background/70 text-accent">

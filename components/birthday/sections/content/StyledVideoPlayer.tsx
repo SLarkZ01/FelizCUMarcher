@@ -12,13 +12,11 @@ function getMimeType(url: string) {
 
 export function StyledVideoPlayer({
   src,
-  poster,
   title,
   accent = "#C9A84C",
   className,
 }: {
   src: string
-  poster?: string
   title: string
   accent?: string
   className?: string
@@ -152,7 +150,7 @@ export function StyledVideoPlayer({
 
   return (
     <div className={cn("tilin-video-shell", className)} style={style} aria-label={`Video ${title}`}>
-      <video ref={videoRef} className="tilin-video-element" preload="metadata" poster={poster} playsInline>
+      <video ref={videoRef} className="tilin-video-element" preload="auto" playsInline>
         <source src={src} type={getMimeType(src)} />
       </video>
 
