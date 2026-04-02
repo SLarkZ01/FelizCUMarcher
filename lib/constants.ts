@@ -44,6 +44,7 @@ export const BIRTHDAY_CONFIG = {
     { label: "Mensaje", href: "#mensaje" },
     { label: "Galería", href: "#galeria" },
     { label: "Conexión", href: "#conexion" },
+    { label: "Tilines", href: "#tilines" },
     { label: "Mensajes", href: "#mensajes" },
   ],
   
@@ -63,7 +64,7 @@ export const BIRTHDAY_CONFIG = {
   
   // Gallery photos
   photos: [
-    { id: 1, url: "/images/yo.webp", title: "Thomas core", alt: "Un bebe random durmiendo", caption: "Archivo clasico para abrir la galeria.", aspect: "portrait", width: 1080, height: 1311 },
+    { id: 1, url: "/images/tilines/Alan.webp", title: "Alan en su prime", alt: "Foto principal de Alan", caption: "La foto oficial del cumpleanero para abrir la galeria.", aspect: "portrait", width: 1024, height: 1536 },
     { id: 2, url: "/images/eldarkiel.webp", title: "Como se siente darkiel", alt: "Foto de recuerdo con Darkiel", caption: "Retrato con energia de partida rankeada.", aspect: "landscape", width: 1079, height: 790 },
     { id: 3, url: "/images/elewualdo.webp", title: "Foto random del edu", alt: "El edu de la vil nada", caption: "Momento espontaneo de la banda.", aspect: "portrait", width: 1200, height: 1600 },
     { id: 4, url: "/images/jorlorenovia.webp", title: "Jor lore", alt: "Jor si es salao mano", caption: "Snapshot de anecdotas inmortales.", aspect: "landscape", width: 1052, height: 788 },
@@ -223,6 +224,54 @@ export const BIRTHDAY_CONFIG = {
       endColor: "#33C8FF",
     },
   ],
+
+  friendsMessages: [
+    {
+      id: "jorge",
+      friendKey: "jorge",
+      name: "Jorge",
+      profileImage: "/images/tilines/Jorge.webp",
+      type: "text",
+      message:
+        "ola Alan la neta feliz cumpleanos we, espero que tengas un dia chingon y que te la pases a toda madre hoy, eres mi mejor amigo y neta espero que puedas conseguir esa lap que tanto quieres para que puedas usarla bien a gusto y obviamente una chamba que te quede como anillo al dedo y te vaya re bien, te quiero we (no homo)",
+    },
+    {
+      id: "eduardo",
+      friendKey: "eduardo",
+      name: "Eduardo",
+      profileImage: "/images/tilines/eledu.webp",
+      type: "audio",
+      audioSrc: "/audio/AudioEduardo.mp3",
+      message: "Un mensaje en audio, porque hay cosas que se sienten mejor cuando se escuchan.",
+    },
+    {
+      id: "darkiel",
+      friendKey: "darkiel",
+      name: "Darkiel",
+      profileImage: "/images/tilines/darkiel.webp",
+      type: "text",
+      message:
+        "Hola Alan feliz cumpleanos, espero que no le des mucha importancia y que no te desanimes por tu desempleo tu sabes muy bien que nosotros siempre estaremos para ti en tus momentos bueno y malos tilin, no queremos que te pongas mal en un dia tan especial para ti como para nosotros porque estamos muy felices de que podamos pasar este cumpleanos juntos aunque sea atraves de una pantalla, espero que pronto todos nos podamos encontrar en un lugar y reir juntos compartiendo momentos, esperamos que salgas adelante y que rompas esos limites que tu mismo te pones, queremos lo mejor para ti como para todo el grupo y te veo como un hermano mas, aunque suene muy raro te quiero mucho tilin y queremos verte y ver triunfar a cada uno de los del grupo (menos zomber) seria tremendo gusto y honor ser uno de los amigos q apoyo desde un inicio, tu puedes conseguir mas cosas de las que prometes, espero que la pases super bien rodeado de los que te quieren tilin y no te olvides que estaremos juntos en todo lo malo te queremos mucho brochacho attm:dariel",
+    },
+    {
+      id: "nicolas-mondragon",
+      friendKey: "mondragon",
+      name: "Nicolas Mondragon",
+      profileImage: "/images/tilines/NicolasMondragon.webp",
+      type: "text",
+      message:
+        "Hola archer, en este dia especial quiero felicitarte por darle una vuelta mas al sil, no llevamos mucho de conocernos, puede que quizas nunca nos lleguemos a ver pero realmente aprecio tu amistad, sos un crack por la manera en la que tenes tus metas fijas y como te esforzas para alcanzarlas, a pesar de que seas una gorda tetona te queremos asi, te aprecio mucho y espero que podamos seguir siendo amigos muchos anos mas, que podas cumplir tus suenos y todo lo que tengas en mente para tu vida.\n\nAtt: tu supp favorito",
+    },
+    {
+      id: "thomas",
+      friendKey: "thomas",
+      name: "Thomas",
+      profileImage: "/images/tilines/Thomas.webp",
+      type: "text",
+      message:
+        "Hola mano, la verdad queria darte un feliz cumpleanos como corresponde. Puede ser que vivo en Colombia y no tenga el dinero para celebrar algo asi, que la verdad, si fuera por mi, los invitaria a todos a un lugar abierto donde pudieramos gozarla, con comida, paisajes, de todo la verdad. Tal vez en un futuro podamos reunirnos todos en algun lugar para celebrar un evento tan especial como este. La verdad queria darte las gracias por todo lo que me has dado, que son cosas incluso monetarias que la verdad aprecio con mucho carino. Todo esto es lo menos que podia hacer. Con respecto a tu trabajo, no te preocupes. Sinceramente he visto que sos una persona hechada para adelante, que no importa que la vida te ponga obstaculos, vos mismo te has demostrado que podes pasarlos sin problema. De todo corazon, te deseo un feliz cumpleanos y que te vaya bien en tu vida en general, tanto con salud, monetariamente, con viejas, con tu familia. Con todo y todos. He visto como sos una persona muy resiliente, mientras tengas un objetivo claro no me cabe duda que vas a estar dandole hasta conseguirlo. La verdad espero que la pases bien el dia de hoy. Ademas, perdoname por no contestarte, creo que puedes ver que realmente estaba ocupado. Y no queria arruinar la sorpresa.",
+    },
+  ],
   
   // Social share text
   shareText: "Feliz cumpleaños Alan: ven a dejar tu mensaje",
@@ -236,6 +285,7 @@ export const BIRTHDAY_CONFIG = {
 
 export type Photo = typeof BIRTHDAY_CONFIG.photos[number]
 export type VideoClip = typeof BIRTHDAY_CONFIG.videos[number]
+export type FriendMessage = typeof BIRTHDAY_CONFIG.friendsMessages[number]
 
 export interface Wish {
   id: string

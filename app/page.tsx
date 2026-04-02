@@ -6,6 +6,7 @@ const Hero = lazy(() => import("@/components/birthday/sections/hero/Hero").then(
 const Tribute = lazy(() => import("@/components/birthday/sections/content/Tribute").then(m => ({ default: m.Tribute })))
 const Gallery = lazy(() => import("@/components/birthday/sections/content/Gallery").then(m => ({ default: m.Gallery })))
 const FriendshipGlobe = lazy(() => import("@/components/birthday/sections/content/FriendshipGlobe").then(m => ({ default: m.FriendshipGlobe })))
+const FriendsMessages = lazy(() => import("@/components/birthday/sections/content/FriendsMessages").then(m => ({ default: m.FriendsMessages })))
 const WishWall = lazy(() => import("@/components/birthday/sections/content/WishWall").then(m => ({ default: m.WishWall })))
 const Footer = lazy(() => import("@/components/birthday/sections/layout/Footer").then(m => ({ default: m.Footer })))
 
@@ -41,6 +42,10 @@ export default function BirthdayPage() {
 
       <Suspense fallback={<SectionLoader />}>
         <FriendshipGlobe />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <FriendsMessages />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
