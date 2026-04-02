@@ -92,13 +92,13 @@ export function WishWall() {
           </span>
 
           <h2 className="mx-auto mt-7 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
-            Esta parte es para vos, {BIRTHDAY_CONFIG.name}
+            Feliz Cumpleaños, {BIRTHDAY_CONFIG.name}
           </h2>
 
           {cameraState === "ready" ? (
             <TextGenerateEffect
               className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg"
-              words="Feliz cumpleaños, Alan. Gracias por ser de esos amigos que cambian el ambiente apenas aparecen. Que este nuevo año te traiga salud, calma, metas cumplidas y muchas risas con los Tilines."
+              words="Gracias por ser de esos amigos que cambian el ambiente apenas aparecen. Que este nuevo año te traiga salud, plata, metas cumplidas y muchas risas con los reales"
               duration={0.45}
             />
           ) : (
@@ -146,7 +146,7 @@ export function WishWall() {
           </div>
 
           <p className="mt-6 text-[11px] tracking-[0.14em] text-white/45 uppercase">
-            Fondo interactivo con webcam pixel grid + mensaje animado en tiempo real
+            El fondo es interactivo, mueve tu mano frente a la camara para ver el efecto. Tranquilos, no los voy a doxear ni nada parecido.
           </p>
         </div>
       </div>
